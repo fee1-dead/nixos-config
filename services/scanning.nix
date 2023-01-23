@@ -1,0 +1,5 @@
+{ ... }:
+{
+  hardware.sane.enable = true;
+
+}
