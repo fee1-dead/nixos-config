@@ -37,6 +37,9 @@
     texlive.combined.scheme-full
     qq
     geogebra
+    zulip
+    premid
+    
   ];
 
   programs.vscode = {

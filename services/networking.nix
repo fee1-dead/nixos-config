@@ -13,4 +13,9 @@
   '';
   # networking.firewall.allowedTCPPorts = [ 8010 8080 ];
   networking.firewall.enable = false;
+  services.tor = {
+    enable = true;
+    client.enable = true;
+    settings.MapAddress = "palladium.libera.chat libera75jm6of4wxpxt4aynol3xjmbtxgfyjpu34ss4d7r7q2v5zrpyd.onion";
+  };
 }

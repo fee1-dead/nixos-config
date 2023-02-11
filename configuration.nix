@@ -19,12 +19,14 @@
       ./services/printing.nix
       ./services/scanning.nix
       ./services/waydroid.nix
+      ./services/virt.nix
 
       ./media/display.nix
       ./media/plex.nix
       ./media/sound.nix
     ];
 
+    
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
