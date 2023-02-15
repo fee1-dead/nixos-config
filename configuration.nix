@@ -19,7 +19,8 @@
       ./services/printing.nix
       ./services/scanning.nix
       ./services/waydroid.nix
-      ./services/virt.nix
+#      ./services/virt.nix
+      ./services/virtualbox.nix
 
       ./media/display.nix
       ./media/plex.nix
@@ -41,7 +42,7 @@
   time.timeZone = "Asia/Kuala_Lumpur";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   programs.steam = {
     enable = true;
@@ -80,6 +81,7 @@
      ark
      libsForQt5.kclock
      blender
+     gparted
 #     wget
 #     vscode
 #     jetbrains.idea-community

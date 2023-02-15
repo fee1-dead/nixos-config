@@ -39,6 +39,7 @@
     geogebra
     zulip
     premid
+    element-desktop
     
   ];
 
@@ -72,7 +73,7 @@
       "code-runner.runInTerminal" = true;
       "rust-analyzer.imports.granularity.enforce" = true;
       "rust-analyzer.imports.granularity.group" = "module";
-      "editor.cursorSmoothCaretAnimation" = true;
+      "editor.cursorSmoothCaretAnimation" = "on";
       "workbench.activityBar.visible" = false;
       "workbench.editor.showTabs" = false;
       "[rust]" = {
