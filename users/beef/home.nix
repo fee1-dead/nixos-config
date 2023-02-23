@@ -40,6 +40,7 @@
     zulip
     premid
     element-desktop
+    osu-lazer
     
   ];
 
