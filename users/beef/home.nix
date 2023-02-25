@@ -82,6 +82,7 @@
         "editor.rulers" = [100];
       };
       "editor.formatOnSave" = true;
+      "window.zoomLevel" = 1;
     };
   };
 
