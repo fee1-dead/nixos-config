@@ -35,12 +35,13 @@
     filelight
     chromium
     texlive.combined.scheme-full
-    qq
     geogebra
     zulip
     premid
     element-desktop
     osu-lazer
+    qq
+    zotero
     
   ];
 
@@ -53,7 +54,6 @@
       zhuangtongfa.material-theme
       eamodio.gitlens
       usernamehw.errorlens
-      vscodevim.vim
       vadimcn.vscode-lldb
       arrterian.nix-env-selector
       github.copilot

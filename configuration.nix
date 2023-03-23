@@ -21,6 +21,7 @@
       ./services/waydroid.nix
 #      ./services/virt.nix
       ./services/virtualbox.nix
+      ./services/redis.nix
 
       ./media/display.nix
       ./media/plex.nix
