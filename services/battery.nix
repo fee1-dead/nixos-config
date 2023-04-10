@@ -1,10 +1,10 @@
 { ... }:
 {
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_BAT="conservative";
-      CPU_SCALING_GOVERNOR_ON_AC="performance";
+#  services.tlp = {
+#    enable = true;
+#    settings = {
+#      CPU_SCALING_GOVERNOR_ON_BAT="conservative";
+#      CPU_SCALING_GOVERNOR_ON_AC="performance";
 
       # The following prevents the battery from charging fully to
       # preserve lifetime. Run `tlp fullcharge` to temporarily force
@@ -17,7 +17,8 @@
       # heat and increase battery usage:
       # CPU_MAX_PERF_ON_AC=75;
       # CPU_MAX_PERF_ON_BAT=60;
-    };
-  };
+#    };
+#  };
+  powerManagement.cpuFreqGovernor = "conservative";
 
 }
