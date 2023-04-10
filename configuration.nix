@@ -12,6 +12,7 @@
       ./dev/common.nix
       ./dev/nix.nix
 
+      ./services/battery.nix
       ./services/docker.nix
       ./services/flatpak.nix
       ./services/networking.nix
@@ -19,8 +20,8 @@
       ./services/printing.nix
       ./services/scanning.nix
       ./services/waydroid.nix
-#      ./services/virt.nix
-      ./services/virtualbox.nix
+      ./services/virt.nix
+#      ./services/virtualbox.nix
       ./services/redis.nix
 
       ./media/display.nix
@@ -76,16 +77,14 @@
   environment.systemPackages = with pkgs; [
      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      git
-     wineWowPackages.staging
+     wineWowPackages.unstableFull
      wget
      vlc
      ark
      libsForQt5.kclock
      blender
      gparted
-#     wget
-#     vscode
-#     jetbrains.idea-community
+     ripgrep
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [

@@ -63,7 +63,7 @@
       ms-vsliveshare.vsliveshare
       james-yu.latex-workshop
     ];
-    userSettings = {
+    /*userSettings = {
       "_comment" = "This should only be edited at /etc/nixos/users/beef/home.nix.";
       "workbench.colorTheme" = "One Dark Pro Darker";
       "editor.fontLigatures" = true;
@@ -83,7 +83,7 @@
       };
       "editor.formatOnSave" = true;
       "window.zoomLevel" = 1;
-    };
+    };*/
   };
 
   programs.git = {
