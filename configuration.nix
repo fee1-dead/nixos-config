@@ -12,15 +12,16 @@
       ./dev/common.nix
       ./dev/nix.nix
 
+      ./services/avahi.nix
       ./services/battery.nix
-      ./services/docker.nix
-      ./services/flatpak.nix
+#      ./services/docker.nix
+#      ./services/flatpak.nix
       ./services/networking.nix
       ./services/input.nix
       ./services/printing.nix
       ./services/scanning.nix
-      ./services/waydroid.nix
-      ./services/virt.nix
+#      ./services/waydroid.nix
+#      ./services/virt.nix
 #      ./services/virtualbox.nix
       ./services/redis.nix
 
@@ -29,6 +30,7 @@
       ./media/sound.nix
     ];
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
     
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

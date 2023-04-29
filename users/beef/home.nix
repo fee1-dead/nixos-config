@@ -1,4 +1,12 @@
 { config, pkgs, nixpkgs, ... }:
+let discord-canary = 
+    pkgs.discord-canary.overrideAttrs (finalAttrs: previousAttrs: {
+      fixupPhase = ''
+        wrapProgramShell $out/opt/DiscordCanary/DiscordCanary \
+          --add-flags "--enable-wayland-ime"    
+      '';
+    });
+in
 {
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the
@@ -24,7 +32,6 @@
     python3
     vlc
     discord-canary
-    betterdiscordctl
     zoom-us
     huggle
     prismlauncher
