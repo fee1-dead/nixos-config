@@ -1,7 +1,7 @@
 { config, pkgs, nixpkgs, ... }:
 let discord-canary = 
     pkgs.discord-canary.overrideAttrs (finalAttrs: previousAttrs: {
-      fixupPhase = ''
+      postFixup = ''
         wrapProgramShell $out/opt/DiscordCanary/DiscordCanary \
           --add-flags "--enable-wayland-ime"    
       '';
