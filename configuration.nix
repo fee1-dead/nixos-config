@@ -23,10 +23,10 @@
 #      ./services/waydroid.nix
 #      ./services/virt.nix
 #      ./services/virtualbox.nix
-      ./services/redis.nix
+#      ./services/redis.nix
 
       ./media/display.nix
-      ./media/plex.nix
+#      ./media/plex.nix
       ./media/sound.nix
     ];
 
@@ -88,16 +88,15 @@
      vlc
      ark
      libsForQt5.kclock
-     blender
+#     blender
      gparted
      ripgrep
-     libsForQt5.audiotube
+#     libsForQt5.audiotube
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
      iosevka
      noto-fonts-cjk-sans
-     twemoji-color-font
   ];
 
 
