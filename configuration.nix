@@ -91,11 +91,13 @@
      blender
      gparted
      ripgrep
+     libsForQt5.audiotube
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
      iosevka
      noto-fonts-cjk-sans
+     twemoji-color-font
   ];
 
 
