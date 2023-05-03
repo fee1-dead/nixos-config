@@ -34,7 +34,7 @@ in
     discord-canary
     zoom-us
     huggle
-    prismlauncher
+#    prismlauncher
     layan-kde
     layan-gtk-theme
     libsForQt5.qtstyleplugin-kvantum
@@ -46,7 +46,7 @@ in
     zulip
     premid
     element-desktop
-    osu-lazer
+#    osu-lazer
     qq
     zotero
     
