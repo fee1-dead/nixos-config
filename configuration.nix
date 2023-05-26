@@ -20,6 +20,7 @@
       ./services/input.nix
       ./services/printing.nix
       ./services/scanning.nix
+      ./services/kdeconnect.nix
 #      ./services/waydroid.nix
 #      ./services/virt.nix
 #      ./services/virtualbox.nix
@@ -61,6 +62,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
   
+  programs.dconf.enable = true;
   # programs.ssh.startAgent = true;
 
   programs.zsh.enable = true;
@@ -84,6 +86,7 @@
      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      git
      wineWowPackages.unstableFull
+     bottles
      wget
      vlc
      ark
@@ -91,7 +94,8 @@
 #     blender
      gparted
      ripgrep
-#     libsForQt5.audiotube
+     libsForQt5.audiotube
+     prismlauncher-qt5
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [

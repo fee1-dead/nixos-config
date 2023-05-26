@@ -49,20 +49,21 @@ in
 #    osu-lazer
     qq
     zotero
+    audacity
     
   ];
 
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
+#      jnoortheen.nix-ide
       rust-lang.rust-analyzer
       ms-vscode-remote.remote-ssh
       zhuangtongfa.material-theme
       eamodio.gitlens
       usernamehw.errorlens
       vadimcn.vscode-lldb
-      arrterian.nix-env-selector
+#      mkhl.direnv
       github.copilot
       ms-vscode.cpptools
       formulahendry.code-runner
@@ -121,6 +122,12 @@ in
         };
       }
     ];
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.starship = {
