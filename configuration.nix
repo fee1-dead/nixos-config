@@ -15,7 +15,7 @@
       ./services/avahi.nix
       ./services/battery.nix
 #      ./services/docker.nix
-#      ./services/flatpak.nix
+      ./services/flatpak.nix
       ./services/networking.nix
       ./services/input.nix
       ./services/printing.nix
@@ -96,6 +96,8 @@
      ripgrep
      libsForQt5.audiotube
      prismlauncher-qt5
+     clash
+     cloudflare-warp
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [

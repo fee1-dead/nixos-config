@@ -55,6 +55,13 @@ in
 
   programs.vscode = {
     enable = true;
+    package = (pkgs.vscode.override { isInsiders = true; }).overrideAttrs (oldAttrs: rec {
+      src = (builtins.fetchTarball {
+        url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+        sha256 = "1b8lf6qqq6868kqzc35482ksfvzfxfhdpn2lisksjrji1qyiz06l";
+      });
+      version = "latest";
+    });
     extensions = with pkgs.vscode-extensions; [
 #      jnoortheen.nix-ide
       rust-lang.rust-analyzer
