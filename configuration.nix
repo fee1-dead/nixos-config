@@ -97,7 +97,8 @@
      libsForQt5.audiotube
      prismlauncher-qt5
      clash
-     cloudflare-warp
+# idk
+#     cloudflare-warp
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
