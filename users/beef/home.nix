@@ -112,7 +112,7 @@ in
     plugins = with pkgs.vimPlugins; [vim-nix];
   };
 
-  programs.zsh = {
+  /*programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
@@ -129,6 +129,11 @@ in
         };
       }
     ];
+  };*/
+
+  programs.fish = {
+    enable = true;
+
   };
 
   programs.direnv = {

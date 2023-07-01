@@ -2,9 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+#      typst-lsp = inputs.typst-lsp.packages.${pkgs.system}.default;
+    })
+  ];
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -28,7 +33,7 @@
 
       ./media/display.nix
 #      ./media/plex.nix
-      ./media/sound.nix
+./media/sound.nix
     ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -99,6 +104,8 @@
      clash
 # idk
 #     cloudflare-warp
+     cloudflared
+     typst-lsp
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
