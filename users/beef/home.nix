@@ -32,7 +32,7 @@ in
     python3
     vlc
     discord-canary
-    zoom-us
+#    zoom-us
     huggle
 #    prismlauncher
     layan-kde
@@ -138,7 +138,7 @@ in
 
   programs.direnv = {
     enable = true;
-    enableZshIntegration = true;
+    # enableFishIntegration = true;
     nix-direnv.enable = true;
   };
 

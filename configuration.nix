@@ -70,9 +70,7 @@
   programs.dconf.enable = true;
   # programs.ssh.startAgent = true;
 
-  programs.zsh.enable = true;
-  environment.pathsToLink = [ "/share/zsh" ];
-
+  programs.fish.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.beef = {
     isNormalUser = true;
@@ -84,7 +82,7 @@
       skanlite
     #  thunderbird
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   environment.systemPackages = with pkgs; [
@@ -106,6 +104,8 @@
 #     cloudflare-warp
      cloudflared
      typst-lsp
+     zoom-us
+     scrcpy
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
