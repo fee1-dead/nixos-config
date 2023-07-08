@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, inputs, ... }:
-
 {
   nixpkgs.overlays = [
     (final: prev: {
@@ -12,42 +11,53 @@
   ];
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    ./hardware-configuration.nix
 
-      ./dev/common.nix
-      ./dev/nix.nix
+    ./dev/common.nix
+    ./dev/nix.nix
 
-      ./services/avahi.nix
-      ./services/battery.nix
+    ./services/avahi.nix
+    ./services/battery.nix
 #      ./services/docker.nix
-      ./services/flatpak.nix
-      ./services/networking.nix
-      ./services/input.nix
-      ./services/printing.nix
-      ./services/scanning.nix
-      ./services/kdeconnect.nix
+    ./services/flatpak.nix
+    ./services/networking.nix
+    ./services/input.nix
+    ./services/printing.nix
+    ./services/scanning.nix
+    ./services/kdeconnect.nix
 #      ./services/waydroid.nix
 #      ./services/virt.nix
 #      ./services/virtualbox.nix
 #      ./services/redis.nix
 
-      ./media/display.nix
+    ./media/display.nix
 #      ./media/plex.nix
-./media/sound.nix
-    ];
+    ./media/sound.nix
+  ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-    
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # use latest linux kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPatches = [{
+    name = "Disable_per-vma_locking";
+    patch = pkgs.fetchurl {
+      url = "https://patchwork.kernel.org/project/linux-mm/patch/20230705063711.2670599-3-surenb@google.com/raw/";
+      sha256 = "BPNxzFWrxf6wVpFeWdwtMJ24/+QYOgjAt3RYmm3D+hc=";
+    };
+    extraStructuredConfig = with lib.kernel; {
+      # ARCH_SUPPORTS_PER_VMA_LOCK = no;
+      # PER_VMA_LOCK = no;
+    };
+  }];
 
   networking.hostName = "nixos"; # Define your hostname.
   # Enable networking
-  
+
 
   time.timeZone = "Asia/Kuala_Lumpur";
 
@@ -66,7 +76,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
-  
+
   programs.dconf.enable = true;
   # programs.ssh.startAgent = true;
 
@@ -86,31 +96,31 @@
   };
 
   environment.systemPackages = with pkgs; [
-     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     git
-     wineWowPackages.unstableFull
-     bottles
-     wget
-     vlc
-     ark
-     libsForQt5.kclock
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
+    wineWowPackages.unstableFull
+    bottles
+    wget
+    vlc
+    ark
+    libsForQt5.kclock
 #     blender
-     gparted
-     ripgrep
-     libsForQt5.audiotube
-     prismlauncher-qt5
-     clash
+    gparted
+    ripgrep
+    libsForQt5.audiotube
+    prismlauncher-qt5
+    clash
 # idk
 #     cloudflare-warp
-     cloudflared
-     typst-lsp
-     zoom-us
-     scrcpy
+    cloudflared
+    typst-lsp
+    zoom-us
+    scrcpy
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
-     iosevka
-     noto-fonts-cjk-sans
+    iosevka
+    noto-fonts-cjk-sans
   ];
 
 

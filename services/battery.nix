@@ -19,6 +19,6 @@
       # CPU_MAX_PERF_ON_BAT=60;
 #    };
 #  };
-  powerManagement.cpuFreqGovernor = "conservative";
+  powerManagement.cpuFreqGovernor = "powersave";
 
 }
