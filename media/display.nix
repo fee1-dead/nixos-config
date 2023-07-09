@@ -9,7 +9,12 @@
     # desktopManager.gnome.enable = true;
     desktopManager.plasma5.enable = true;
   };
-  programs.hyprland.enable = true;
+  programs = {
+    hyprland.enable = true;
+  };
+  environment.systemPackages = with pkgs; [
+    dunst
+  ];
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
