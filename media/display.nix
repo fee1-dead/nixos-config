@@ -13,7 +13,10 @@
     hyprland.enable = true;
   };
   environment.systemPackages = with pkgs; [
-    dunst
+    dunst # notification daemon
+    wofi # app launcher
+    eww-wayland # status bar and widgets
+    watershot # screenshot
   ];
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
