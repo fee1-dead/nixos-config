@@ -49,7 +49,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # use latest linux kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPatches = [{
+  /*boot.kernelPatches = [{
     name = "Disable_per-vma_locking";
     patch = pkgs.fetchurl {
       url = "https://patchwork.kernel.org/project/linux-mm/patch/20230705063711.2670599-3-surenb@google.com/raw/";
@@ -59,7 +59,7 @@
       # ARCH_SUPPORTS_PER_VMA_LOCK = no;
       # PER_VMA_LOCK = no;
     };
-  }];
+  }];*/
 
   networking.hostName = "nixos"; # Define your hostname.
   # Enable networking
