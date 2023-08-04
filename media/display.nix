@@ -14,6 +14,9 @@
     hyprland.enable = true;
     nm-applet.enable = true;
   };
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-hyprland
+  ];
   environment.systemPackages = with pkgs; [
     dunst # notification daemon
     wofi # app launcher
@@ -21,6 +24,9 @@
     watershot # screenshot
     networkmanagerapplet
     gnome.seahorse
+    hyprpaper
+    grim
+    slurp
   ];
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos

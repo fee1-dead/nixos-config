@@ -124,6 +124,7 @@
     scrcpy
     wezterm
     kitty
+    gcc
   ];
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
