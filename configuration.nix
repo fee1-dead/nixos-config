@@ -128,7 +128,7 @@
   ];
   fonts = {
     fontDir.enable = true;
-    packages = fonts = with pkgs; [
+    packages = with pkgs; [
       iosevka
       noto-fonts-cjk-sans
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
