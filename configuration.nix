@@ -126,11 +126,13 @@
     kitty
     gcc
   ];
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
-    iosevka
-    noto-fonts-cjk-sans
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+  fonts = {
+    fontDir.enable = true;
+    packages = fonts = with pkgs; [
+      iosevka
+      noto-fonts-cjk-sans
+      (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    ];
   ];
 
 

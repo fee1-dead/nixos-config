@@ -146,6 +146,17 @@ in
     enable = true;
   };
 
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      { timeout = 600; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+      {
+        timeout = 610; command = "hyprctl dispatch dpms off";
+        resumeCommand = "hyprctl dispatch dpms on";
+      }
+    ];
+  };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
