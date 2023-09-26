@@ -3,6 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, inputs, ... }:
+let
+  my-python-packages = ps: with ps; [
+#    ipykernel
+#    notebook
+    # other python packages
+  ];
+in
 {
   nixpkgs.overlays = [
     (final: prev: {
@@ -24,6 +31,7 @@
 
     ./services/avahi.nix
     ./services/battery.nix
+    ./services/computing.nix
 #      ./services/docker.nix
     ./services/flatpak.nix
     ./services/networking.nix
@@ -125,6 +133,9 @@
     wezterm
     kitty
     gcc
+    calibre
+#    (python3.withPackages my-python-packages)
+    sageWithDoc
   ];
   fonts = {
     fontDir.enable = true;
@@ -133,7 +144,7 @@
       noto-fonts-cjk-sans
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];
-  ];
+  };
 
 
   hardware.bluetooth.enable = true;

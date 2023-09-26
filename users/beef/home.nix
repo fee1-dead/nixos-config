@@ -19,6 +19,7 @@ in
     MOZ_USE_XINPUT2 = "1";
   };
   home.packages = with pkgs; [
+    anki
     iosevka
     wget
     rnix-lsp
@@ -29,7 +30,7 @@ in
     mlt
     rustup
     git-absorb
-    python3
+#    python3
     vlc
     discord-canary
 #    zoom-us
@@ -41,27 +42,19 @@ in
     konversation
     filelight
     chromium
-    texlive.combined.scheme-full
-    geogebra
+#    texlive.combined.scheme-full
+#    geogebra
     zulip
     premid
     element-desktop
 #    osu-lazer
     qq
     zotero
-    audacity
-    
+#    audacity
   ];
 
   programs.vscode = {
     enable = true;
-    package = (pkgs.vscode.override { isInsiders = true; }).overrideAttrs (oldAttrs: rec {
-      src = (builtins.fetchTarball {
-        url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-        sha256 = "1b8lf6qqq6868kqzc35482ksfvzfxfhdpn2lisksjrji1qyiz06l";
-      });
-      version = "latest";
-    });
     extensions = with pkgs.vscode-extensions; [
 #      jnoortheen.nix-ide
       rust-lang.rust-analyzer
@@ -77,6 +70,7 @@ in
       WakaTime.vscode-wakatime
       ms-vsliveshare.vsliveshare
       james-yu.latex-workshop
+      mgt19937.typst-preview
     ];
     /*userSettings = {
       "_comment" = "This should only be edited at /etc/nixos/users/beef/home.nix.";

@@ -4,7 +4,10 @@
     enable = true;
     layout = "us";
     xkbVariant = "colemak";
-    displayManager.gdm.enable = true;
+    displayManager = {
+      gdm.enable = true;
+      defaultSession = "hyprland";
+    };
     # displayManager.sddm.enable = true;
     # desktopManager.gnome.enable = true;
     desktopManager.plasma5.enable = true;
