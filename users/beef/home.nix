@@ -18,6 +18,7 @@ in
     EDITOR = "nvim";
     MOZ_USE_XINPUT2 = "1";
   };
+  systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
   home.packages = with pkgs; [
     anki
     iosevka
@@ -51,6 +52,7 @@ in
     qq
     zotero
 #    audacity
+    youtube-music
   ];
 
   programs.vscode = {
