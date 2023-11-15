@@ -11,6 +11,9 @@ let
   ];
 in
 {
+#  nixpkgs.config.permittedInsecurePackages = [
+#    "zotero-6.0.27"
+#  ];
   nixpkgs.overlays = [
     (final: prev: {
 #      typst-lsp = inputs.typst-lsp.packages.${pkgs.system}.default;
@@ -104,6 +107,7 @@ in
       firefox
       kate
       skanlite
+      samba
     #  thunderbird
     ];
     shell = pkgs.fish;
@@ -134,13 +138,14 @@ in
     kitty
     gcc
     calibre
-#    (python3.withPackages my-python-packages)
+    (python3.withPackages my-python-packages)
     sageWithDoc
   ];
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
       iosevka
+      noto-fonts
       noto-fonts-cjk-sans
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];

@@ -9,6 +9,9 @@ let discord-canary =
 in
 {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "zotero-6.0.27"
+  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "beef";

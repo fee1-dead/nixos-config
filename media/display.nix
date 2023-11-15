@@ -6,21 +6,21 @@
     xkbVariant = "colemak";
     displayManager = {
       gdm.enable = true;
-      defaultSession = "hyprland";
+      # defaultSession = "hyprland";
     };
     # displayManager.sddm.enable = true;
-    # desktopManager.gnome.enable = true;
-    desktopManager.plasma5.enable = true;
+#    desktopManager.gnome.enable = true;
+     desktopManager.plasma5.enable = true;
   };
   security.pam.services.gdm.enableGnomeKeyring = true;
   programs = {
-    hyprland.enable = true;
-    nm-applet.enable = true;
+    # hyprland.enable = true;
+    # nm-applet.enable = true;
   };
   xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-hyprland
+    # pkgs.xdg-desktop-portal-hyprland
   ];
-  environment.systemPackages = with pkgs; [
+  /* environment.systemPackages = with pkgs; [
     dunst # notification daemon
     wofi # app launcher
     eww-wayland # status bar and widgets
@@ -30,7 +30,7 @@
     hyprpaper
     grim
     slurp
-  ];
+  ]; */
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
@@ -44,10 +44,10 @@
     evince # document viewer
     gnome-characters
     totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
+    # tali # poker game
+    # iagno # go game
+    # hitori # sudoku game
+    # atomix # puzzle game
   ]);
 
 }
