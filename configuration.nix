@@ -127,7 +127,7 @@ in
     ripgrep
     libsForQt5.audiotube
     prismlauncher-qt5
-    clash
+    clash-meta
 # idk
 #     cloudflare-warp
     cloudflared

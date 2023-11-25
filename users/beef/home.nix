@@ -56,6 +56,7 @@ in
     zotero
 #    audacity
     youtube-music
+    lutris
   ];
 
   programs.vscode = {
