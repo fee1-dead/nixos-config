@@ -6,6 +6,7 @@
     xkbVariant = "colemak";
     displayManager = {
       gdm.enable = true;
+      defaultSession = "plasmawayland";
       # defaultSession = "hyprland";
     };
     # displayManager.sddm.enable = true;
