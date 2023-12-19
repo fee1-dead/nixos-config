@@ -57,6 +57,7 @@ in
 #    audacity
     youtube-music
     lutris
+    zola
   ];
 
   programs.vscode = {
@@ -69,7 +70,7 @@ in
       eamodio.gitlens
       usernamehw.errorlens
       vadimcn.vscode-lldb
-#      mkhl.direnv
+      mkhl.direnv
       github.copilot
       ms-vscode.cpptools
       formulahendry.code-runner

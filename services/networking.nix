@@ -15,11 +15,11 @@
   # networking.firewall.allowedTCPPorts = [ 8010 8080 ];
   networking.firewall.enable = false;
   services.tor = {
-    enable = true;
+    enable = false;
     client.enable = true;
     settings.MapAddress = "palladium.libera.chat libera75jm6of4wxpxt4aynol3xjmbtxgfyjpu34ss4d7r7q2v5zrpyd.onion";
   };
-  services.gvfs.enable = true;
+  /* services.gvfs.enable = true;
   programs.proxychains = {
     enable = true;
     proxies.clash = {
@@ -27,5 +27,9 @@
       host = "192.168.0.11";
       port = 7891;
     };
+    }; */
+  services.dae = {
+    configFile = "/etc/nixos/services/config.dae";
+    enable = true;
   };
 }

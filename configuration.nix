@@ -5,6 +5,8 @@
 { config, pkgs, lib, inputs, ... }:
 let
   my-python-packages = ps: with ps; [
+    future
+    pygame_sdl2
 #    ipykernel
 #    notebook
     # other python packages
@@ -140,6 +142,8 @@ in
     calibre
     (python3.withPackages my-python-packages)
     sageWithDoc
+    renpy
+    clash-verge
   ];
   fonts = {
     fontDir.enable = true;
