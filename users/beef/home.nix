@@ -1,17 +1,6 @@
 { config, pkgs, nixpkgs, ... }:
-let discord-canary = 
-    pkgs.discord-canary.overrideAttrs (finalAttrs: previousAttrs: {
-      postFixup = ''
-        wrapProgramShell $out/opt/DiscordCanary/DiscordCanary \
-          --add-flags "--enable-wayland-ime"    
-      '';
-    });
-in
 {
   nixpkgs.config.allowUnfree = true;
-#  nixpkgs.config.permittedInsecurePackages = [
-#    "zotero-6.0.27"
-#  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "beef";
@@ -34,12 +23,9 @@ in
     mlt
     rustup
     git-absorb
-#    python3
     vlc
-    discord-canary
-#    zoom-us
+    # discord
     huggle
-#    prismlauncher
     layan-kde
     layan-gtk-theme
     libsForQt5.qtstyleplugin-kvantum
@@ -113,28 +99,8 @@ in
     plugins = with pkgs.vimPlugins; [vim-nix];
   };
 
-  /*programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
-    autocd = true;
-    plugins = [
-      {
-        name = "zsh-nix-shell";
-        file = "nix-shell.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "chisui";
-          repo = "zsh-nix-shell";
-          rev = "v0.5.0";
-          sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
-        };
-      }
-    ];
-  };*/
-
   programs.fish = {
     enable = true;
-
   };
 
   programs.direnv = {

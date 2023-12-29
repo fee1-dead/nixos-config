@@ -13,7 +13,7 @@
 #    desktopManager.gnome.enable = true;
      desktopManager.plasma5.enable = true;
   };
-  security.pam.services.gdm.enableGnomeKeyring = true;
+  # security.pam.services.gdm.enableGnomeKeyring = true;
   programs = {
     # hyprland.enable = true;
     # nm-applet.enable = true;
