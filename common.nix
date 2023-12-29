@@ -74,7 +74,7 @@
     prismlauncher-qt5
     wezterm
     gcc
-    sageWithDoc
+    # sageWithDoc
     libreoffice-fresh
   ];
   fonts = {

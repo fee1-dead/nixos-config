@@ -12,11 +12,11 @@
   };
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
   home.packages = with pkgs; [
-    anki
-    iosevka
-    wget
+#    anki
+#    iosevka
+#    wget
 #    rnix-lsp
-    jetbrains.idea-community
+#    jetbrains.idea-community
     obs-studio
     kdenlive
     rubberband
