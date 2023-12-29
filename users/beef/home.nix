@@ -9,9 +9,9 @@ let discord-canary =
 in
 {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "zotero-6.0.27"
-  ];
+#  nixpkgs.config.permittedInsecurePackages = [
+#    "zotero-6.0.27"
+#  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "beef";
@@ -26,7 +26,7 @@ in
     anki
     iosevka
     wget
-    rnix-lsp
+#    rnix-lsp
     jetbrains.idea-community
     obs-studio
     kdenlive
@@ -48,14 +48,14 @@ in
     chromium
 #    texlive.combined.scheme-full
 #    geogebra
-    zulip
-    premid
-    element-desktop
+#    zulip
+#    premid
+#    element-desktop
 #    osu-lazer
-    qq
+#    qq
     zotero
 #    audacity
-    youtube-music
+#    youtube-music
     lutris
     zola
   ];
@@ -147,16 +147,16 @@ in
     enable = true;
   };
 
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      { timeout = 600; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
-      {
-        timeout = 610; command = "hyprctl dispatch dpms off";
-        resumeCommand = "hyprctl dispatch dpms on";
-      }
-    ];
-  };
+ # services.swayidle = {
+ #   enable = true;
+ #   timeouts = [
+ #     { timeout = 600; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+ #     {
+ #       timeout = 610; command = "hyprctl dispatch dpms off";
+ #       resumeCommand = "hyprctl dispatch dpms on";
+ #     }
+ #   ];
+ # };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

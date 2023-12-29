@@ -5,8 +5,8 @@
 { config, pkgs, lib, inputs, ... }:
 let
   my-python-packages = ps: with ps; [
-    future
-    pygame_sdl2
+#    future
+#    pygame_sdl2
 #    ipykernel
 #    notebook
     # other python packages
@@ -36,9 +36,9 @@ in
 
     ./services/avahi.nix
     ./services/battery.nix
-    ./services/computing.nix
-#      ./services/docker.nix
-    ./services/flatpak.nix
+#    ./services/computing.nix
+#    ./services/docker.nix
+#    ./services/flatpak.nix
     ./services/networking.nix
     ./services/input.nix
     ./services/printing.nix
@@ -127,23 +127,24 @@ in
 #     blender
     gparted
     ripgrep
-    libsForQt5.audiotube
+#    libsForQt5.audiotube
     prismlauncher-qt5
     clash-meta
 # idk
 #     cloudflare-warp
     cloudflared
     typst-lsp
-    zoom-us
-    scrcpy
+#    zoom-us
+#    scrcpy
     wezterm
-    kitty
+#    kitty
     gcc
-    calibre
+#    calibre
     (python3.withPackages my-python-packages)
     sageWithDoc
-    renpy
-    clash-verge
+#    renpy
+#    clash-verge
+    libreoffice-fresh
   ];
   fonts = {
     fontDir.enable = true;
