@@ -24,9 +24,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest Linux.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
 
   time.timeZone = "Asia/Kuala_Lumpur";
 
@@ -52,7 +49,17 @@
   users.users.beef = {
     isNormalUser = true;
     description = "Deadbeef";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "docker" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "scanner"
+      "lp"
+      "docker"
+      "input"
+      # for ROCm
+      "video"
+      "render"
+    ];
     packages = with pkgs; [
       firefox
       kate
