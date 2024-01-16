@@ -3,16 +3,26 @@
   networking.hostName = "uwu"; # Define your hostname.
   system.stateVersion = "24.05";
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPatches = [
+    {
+      name = "rv";
+      patch = ./reversed.patch;
+    }
+  ];
 #  boot.kernelPackages = pkgs.linuxPackages_6_4;
-  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
-  systemd.services.nix-daemon.environment.all_proxy = "socks5h://192.168.1.7:7891";
-  services.hardware.openrgb.enable = true;
+#  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+#  systemd.services.nix-daemon.environment.all_proxy = "socks5h://192.168.2.209:7891";
   environment.systemPackages = with pkgs; [
-    blender
+    blender-hip
     rocmPackages.hipcc
     rocmPackages.clr
     nodejs
     llama-cpp
+    discord
+    python3
+    gnumake
+    typst-preview
   ];
   hardware.opengl.driSupport = true;
   systemd.tmpfiles.rules = [
@@ -24,4 +34,8 @@
   ];
   services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
+  services.hardware.openrgb = {
+    enable = true;
+    motherboard = "amd";
+  };
 }

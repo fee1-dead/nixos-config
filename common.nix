@@ -23,6 +23,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
 
   time.timeZone = "Asia/Kuala_Lumpur";
@@ -81,8 +82,9 @@
     prismlauncher-qt5
     wezterm
     gcc
-    # sageWithDoc
     libreoffice-fresh
+    (sageWithDoc.override { requireSageTests = false; })
+    youtube-music
   ];
   fonts = {
     fontDir.enable = true;
