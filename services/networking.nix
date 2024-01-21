@@ -28,8 +28,8 @@
       port = 7891;
     };
     }; */
-  services.dae = {
+  /* services.dae = {
     configFile = "/etc/nixos/services/config.dae";
     enable = true;
-  };
+  }; */
 }

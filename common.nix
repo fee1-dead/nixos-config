@@ -83,7 +83,7 @@
     wezterm
     gcc
     libreoffice-fresh
-    (sageWithDoc.override { requireSageTests = false; })
+    # (sageWithDoc.override { requireSageTests = false; })
     youtube-music
   ];
   fonts = {

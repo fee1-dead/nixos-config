@@ -2,16 +2,16 @@
 {
   imports =
     [
-    ./services/avahi.nix
-    ./services/battery.nix
-    ./services/computing.nix
+    ../services/avahi.nix
+    ../services/battery.nix
+    ../services/computing.nix
 #      ./services/docker.nix
-    ./services/flatpak.nix
-    ./services/networking.nix
-    ./services/input.nix
-    ./services/printing.nix
-    ./services/scanning.nix
-    ./services/kdeconnect.nix
+    ../services/flatpak.nix
+    ../services/networking.nix
+    ../services/input.nix
+    ../services/printing.nix
+    ../services/scanning.nix
+    ../services/kdeconnect.nix
 #      ./services/waydroid.nix
 #      ./services/virt.nix
 #      ./services/virtualbox.nix
@@ -38,7 +38,7 @@
     wget
     gparted
     ripgrep
-    clash
+    clash-meta
 # idk
 #     cloudflare-warp
     cloudflared
@@ -47,7 +47,6 @@
     scrcpy
     kitty
     calibre
-    (python3.withPackages my-python-packages)
   ];
 
 

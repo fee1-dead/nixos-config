@@ -44,6 +44,8 @@
 #    youtube-music
     lutris
     zola
+    libsForQt5.plasma-vault
+#    kmail
   ];
 
   programs.vscode = {

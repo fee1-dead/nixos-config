@@ -15,7 +15,7 @@
     };
   in {
     # HP Laptop
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.owo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./common.nix
