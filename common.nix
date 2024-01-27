@@ -85,6 +85,7 @@
     libreoffice-fresh
     # (sageWithDoc.override { requireSageTests = false; })
     youtube-music
+    qq
   ];
   fonts = {
     fontDir.enable = true;
