@@ -5,10 +5,10 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPatches = [
-    {
+    /* {
       name = "rv";
       patch = ./reversed.patch;
-    }
+    } */
   ];
 #  boot.kernelPackages = pkgs.linuxPackages_6_4;
 #  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
