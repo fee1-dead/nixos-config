@@ -5,8 +5,6 @@
   environment.sessionVariables = {
     NIX_PROFILES =
       "${lib.concatStringsSep " " (lib.reverseList config.environment.profiles)}";
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
 }

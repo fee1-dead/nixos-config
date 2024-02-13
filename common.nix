@@ -86,6 +86,7 @@
     # (sageWithDoc.override { requireSageTests = false; })
     youtube-music
     qq
+    nix-output-monitor
   ];
   fonts = {
     fontDir.enable = true;

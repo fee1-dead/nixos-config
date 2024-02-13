@@ -48,6 +48,10 @@
 #    kmail
   ];
 
+  home.shellAliases = {
+    nswitch = "sudo bash -c 'nixos-rebuild switch |& nom'";
+  };
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;/*

@@ -2,8 +2,10 @@
 {
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "colemak";
+    xkb = {
+      variant = "colemak";
+      layout = "us";
+    };
     displayManager = {
       gdm.enable = true;
       defaultSession = "plasmawayland";

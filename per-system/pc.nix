@@ -23,6 +23,8 @@
     python3
     gnumake
     typst-preview
+    bottles
+    wine
   ];
   hardware.opengl.driSupport = true;
   systemd.tmpfiles.rules = [
