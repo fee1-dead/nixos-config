@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ../services/redis.nix
+  ];
   networking.hostName = "uwu"; # Define your hostname.
   system.stateVersion = "24.05";
 
