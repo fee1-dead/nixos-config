@@ -17,7 +17,7 @@
 #      ./services/virtualbox.nix
 #      ./services/redis.nix
 
-#      ./media/plex.nix
+      ../media/plex.nix
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -47,6 +47,10 @@
     scrcpy
     kitty
     calibre
+    ardour
+    audacity
+    tenacity
+    # jetbrains.idea-community
   ];
 
 
