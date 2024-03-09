@@ -87,6 +87,7 @@
     youtube-music
     qq
     nix-output-monitor
+    jujutsu
   ];
   fonts = {
     fontDir.enable = true;
