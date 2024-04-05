@@ -3,6 +3,9 @@
   imports = [
     ../services/redis.nix
   ];
+  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
+  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
+
   networking.hostName = "uwu"; # Define your hostname.
   system.stateVersion = "24.05";
 
@@ -30,8 +33,24 @@
     wine
   ];
   hardware.opengl.driSupport = true;
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+
+  systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
+    name = "rocm-merged";
+
+    paths = with pkgs.rocmPackages; [
+      rocm-core clr rccl miopen miopengemm rocrand rocblas
+      rocsparse hipsparse rocthrust rocprim hipcub roctracer
+      rocfft rocsolver hipfft hipsolver hipblas
+      rocminfo rocm-thunk rocm-comgr rocm-device-libs
+      rocm-runtime clr.icd hipify
+    ];
+
+    # Fix `setuptools` not being found
+    postBuild = ''
+      rm -rf $out/nix-support
+    '';
+  }; in [
+    "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
   ];
   hardware.opengl.extraPackages = with pkgs; [
     rocm-opencl-icd
