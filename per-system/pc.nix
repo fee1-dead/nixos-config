@@ -20,9 +20,9 @@
 #  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 #  systemd.services.nix-daemon.environment.all_proxy = "socks5h://192.168.2.209:7891";
   environment.systemPackages = with pkgs; [
-    blender-hip
-    rocmPackages.hipcc
-    rocmPackages.clr
+    # blender-hip
+    # rocmPackages.hipcc
+    # rocmPackages.clr
     nodejs
     llama-cpp
     discord
@@ -31,14 +31,15 @@
     typst-preview
     bottles
     wine
+    distrobox
   ];
   hardware.opengl.driSupport = true;
 
-  systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
+  /* systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
     name = "rocm-merged";
 
     paths = with pkgs.rocmPackages; [
-      rocm-core clr rccl miopen miopengemm rocrand rocblas
+      rocm-core clr rccl miopen rocrand rocblas
       rocsparse hipsparse rocthrust rocprim hipcub roctracer
       rocfft rocsolver hipfft hipsolver hipblas
       rocminfo rocm-thunk rocm-comgr rocm-device-libs
@@ -51,7 +52,10 @@
     '';
   }; in [
     "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
-  ];
+    ]; */
+  virtualisation.podman = {
+    enable = true;
+  };
   hardware.opengl.extraPackages = with pkgs; [
     rocm-opencl-icd
     rocmPackages.rocm-runtime
