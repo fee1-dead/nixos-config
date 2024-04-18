@@ -39,7 +39,6 @@
 #    element-desktop
 #    osu-lazer
 #    qq
-    zotero
 #    audacity
 #    youtube-music
     lutris

@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  services.displayManager.defaultSession = "plasmawayland";
   services.xserver = {
     enable = true;
     xkb = {
@@ -8,7 +9,6 @@
     };
     displayManager = {
       gdm.enable = true;
-      defaultSession = "plasmawayland";
       # defaultSession = "hyprland";
     };
     # displayManager.sddm.enable = true;

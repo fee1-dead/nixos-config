@@ -18,6 +18,10 @@
     ./services/input.nix
   ];
 
+  nixpkgs.overlays = [ (final: prev: { 
+    
+  }) ];
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Bootloader.
@@ -89,6 +93,7 @@
     qq
     nix-output-monitor
     jujutsu
+    zotero_7
   ];
   fonts = {
     fontDir.enable = true;
