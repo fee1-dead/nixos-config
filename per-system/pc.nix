@@ -34,6 +34,7 @@
     distrobox
   ];
   hardware.opengl.driSupport = true;
+  programs.corectrl.enable = true;
 
   /* systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
     name = "rocm-merged";
