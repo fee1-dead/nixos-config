@@ -32,6 +32,7 @@
     bottles
     wine
     distrobox
+    tor-browser-bundle-bin
   ];
   hardware.opengl.driSupport = true;
   programs.corectrl.enable = true;

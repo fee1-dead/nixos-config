@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  services.displayManager.defaultSession = "plasmawayland";
+  services.displayManager.defaultSession = "plasma";
   services.xserver = {
     enable = true;
     xkb = {
@@ -13,7 +13,7 @@
     };
     # displayManager.sddm.enable = true;
 #    desktopManager.gnome.enable = true;
-     desktopManager.plasma5.enable = true;
+     desktopManager.plasma6.enable = true;
   };
   # security.pam.services.gdm.enableGnomeKeyring = true;
   programs = {

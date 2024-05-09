@@ -18,7 +18,7 @@
 #    rnix-lsp
 #    jetbrains.idea-community
     obs-studio
-    kdenlive
+    kdePackages.kdenlive
     rubberband
     mlt
     rustup
@@ -26,11 +26,11 @@
     vlc
     # discord
     huggle
-    layan-kde
-    layan-gtk-theme
-    libsForQt5.qtstyleplugin-kvantum
-    konversation
-    filelight
+    # layan-kde
+#    layan-gtk-theme
+#    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.konversation
+    kdePackages.filelight
     chromium
 #    texlive.combined.scheme-full
 #    geogebra

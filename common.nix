@@ -68,8 +68,8 @@
     ];
     packages = with pkgs; [
       firefox
-      kate
-      skanlite
+      kdePackages.kate
+      kdePackages.skanlite
       samba
     ];
     shell = pkgs.fish;
@@ -80,11 +80,11 @@
     git
     wget
     vlc
-    ark
+    kdePackages.ark
     libsForQt5.kclock
     gparted
     ripgrep
-    prismlauncher-qt5
+    prismlauncher
     wezterm
     gcc
     libreoffice-fresh
