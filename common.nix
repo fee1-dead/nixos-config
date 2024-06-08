@@ -16,6 +16,7 @@
     ./media/sound.nix
     ./media/display.nix
     ./services/input.nix
+    ./services/kdeconnect.nix
   ];
 
   nixpkgs.overlays = [ (final: prev: { 
@@ -94,6 +95,7 @@
     nix-output-monitor
     jujutsu
     zotero_7
+    fortune-kind
   ];
   fonts = {
     fontDir.enable = true;

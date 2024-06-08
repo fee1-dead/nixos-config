@@ -11,7 +11,6 @@
     ../services/input.nix
     ../services/printing.nix
     ../services/scanning.nix
-    ../services/kdeconnect.nix
 #      ./services/waydroid.nix
 #      ./services/virt.nix
 #      ./services/virtualbox.nix
@@ -58,6 +57,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
+  services.xserver.xkb = {
+    variant = "colemak";
+    layout = "us";
+  };
 
 
 

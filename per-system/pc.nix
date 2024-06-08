@@ -33,9 +33,11 @@
     wine
     distrobox
     tor-browser-bundle-bin
+    keymapp
   ];
   hardware.opengl.driSupport = true;
   programs.corectrl.enable = true;
+  hardware.keyboard.zsa.enable = true;
 
   /* systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
     name = "rocm-merged";
