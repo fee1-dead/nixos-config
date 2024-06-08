@@ -37,7 +37,7 @@
     wget
     gparted
     ripgrep
-    clash-meta
+    mihomo # renamed from clash-meta
 # idk
 #     cloudflare-warp
     cloudflared
@@ -62,7 +62,10 @@
     layout = "us";
   };
 
-
+  services.dae = {
+    configFile = "/etc/nixos/services/config.dae";
+    enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
