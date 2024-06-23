@@ -4,6 +4,7 @@
 
 { config, pkgs, lib, inputs, ... }:
 {
+  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
   system.activationScripts.diff = {
     supportsDryActivation = true;
     text = ''
@@ -92,6 +93,7 @@
     # (sageWithDoc.override { requireSageTests = false; })
     youtube-music
     qq
+    discord
     nix-output-monitor
     jujutsu
     zotero_7

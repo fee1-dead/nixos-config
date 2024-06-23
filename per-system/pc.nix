@@ -25,7 +25,6 @@
     # rocmPackages.clr
     nodejs
     llama-cpp
-    discord
     python3
     gnumake
     typst-preview
