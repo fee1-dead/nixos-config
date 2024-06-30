@@ -49,6 +49,7 @@
     ardour
     audacity
     tenacity
+    jre_minimal
     # jetbrains.idea-community
   ];
 
