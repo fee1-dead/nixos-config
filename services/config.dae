@@ -1,8 +1,8 @@
 global {
   log_level: info
-  wan_interface: wlo1 # 修改
-#  dial_mode: domain
-  allow_insecure: false
+  wan_interface: auto # 修改
+  dial_mode: domain
+#  allow_insecure: false
   auto_config_kernel_parameter: true
 }
 node {
@@ -11,13 +11,13 @@ node {
 dns {
   upstream {
     alidns: 'udp://223.5.5.5:53'
-    googledns: 'tcp+udp://8.8.8.8:53'
+#    cloudflaredns: 'udp://8.8.8.8:53'
+    googledns: 'tcp+udp://dns.google.com:53'
   }
   routing {
     request {
       qname(geosite:cn) -> alidns
-#      qname(suffix: github.com) -> googledns
-      fallback: alidns
+      fallback: googledns
     }
   }
 }
@@ -28,8 +28,8 @@ group {
 }
 # 参考 https://github.com/daeuniverse/dae/blob/main/docs/routing.md
 routing {
-  pname(dnsmasq, systemd-resolved) && l4proto(udp) && dport(53) -> must_direct
-  pname(NetworkManager) -> must_direct
+#  pname(dnsmasq, systemd-resolved) && l4proto(udp) && dport(53) -> must_direct
+  pname(NetworkManager) -> direct
   dip(223.5.5.5) -> must_direct
 
   # clash 代理客户端直连，防止网络回环
@@ -42,12 +42,15 @@ routing {
   domain(suffix: bing.com) -> clash
   domain(suffix: wikipedia.org) -> clash
   domain(suffix: github.com) -> clash
+  domain(geosite:github) -> clash
+  domain(suffix: static.rust-lang.org) -> clash
 
   # 需要指定直连的网站或进程
   # domain(suffix: cm.steampowered.com) -> direct
   # domain(suffix: steamserver.net) -> direct
   # pname(qbittorrent) -> direct
   domain(suffix: rust-lang.org) -> direct
+  dport(22) -> direct
 
   dip(224.0.0.0/3, 'ff00::/8') -> direct
   dip(geoip:private) -> direct

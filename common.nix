@@ -52,6 +52,7 @@
   programs.dconf.enable = true;
 
   programs.fish.enable = true;
+  programs.fuse.userAllowOther = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.beef = {
@@ -93,16 +94,19 @@
     (sageWithDoc.override { requireSageTests = false; })
     youtube-music
     qq
-    discord
+    vesktop
     nix-output-monitor
     jujutsu
     zotero_7
     fortune-kind
+    parsec-bin
+    keymapp
   ];
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
       iosevka
+      ibm-plex
       noto-fonts
       noto-fonts-cjk-sans
       # (nerdfonts.override { fonts = [ "Iosevka" ]; })

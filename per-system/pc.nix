@@ -32,7 +32,6 @@
     wine
     distrobox
     tor-browser-bundle-bin
-    keymapp
   ];
   hardware.opengl.driSupport = true;
   programs.corectrl.enable = true;
