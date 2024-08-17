@@ -27,13 +27,12 @@
     llama-cpp
     python3
     gnumake
-    typst-preview
+    tinymist
     bottles
     wine
     distrobox
     tor-browser-bundle-bin
   ];
-  hardware.opengl.driSupport = true;
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
 

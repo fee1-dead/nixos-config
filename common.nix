@@ -47,7 +47,7 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  # programs.nix-ld.enable = true;
+  programs.nix-ld.enable = true;
 
   programs.dconf.enable = true;
 
