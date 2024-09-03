@@ -44,6 +44,7 @@ routing {
   domain(suffix: github.com) -> clash
   domain(geosite:github) -> clash
   domain(suffix: static.rust-lang.org) -> clash
+  domain(suffix: steampowered.com) -> clash
 
   # 需要指定直连的网站或进程
   # domain(suffix: cm.steampowered.com) -> direct
