@@ -47,7 +47,7 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  programs.nix-ld.enable = true;
+  # programs.nix-ld.enable = true;
 
   programs.dconf.enable = true;
 
@@ -101,6 +101,7 @@
     fortune-kind
     parsec-bin
     keymapp
+    zed-editor
   ];
   fonts = {
     fontDir.enable = true;
