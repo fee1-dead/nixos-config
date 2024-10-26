@@ -21,13 +21,13 @@
 #  systemd.services.nix-daemon.environment.all_proxy = "socks5h://192.168.2.209:7891";
   environment.systemPackages = with pkgs; [
     # blender-hip
+    qq
     # rocmPackages.hipcc
     # rocmPackages.clr
     nodejs
     llama-cpp
     python3
     gnumake
-    tinymist
     bottles
     wine
     distrobox
@@ -35,6 +35,7 @@
   ];
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
+
 
   /* systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
     name = "rocm-merged";

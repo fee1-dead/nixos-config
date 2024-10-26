@@ -41,12 +41,6 @@
     "zh_CN.UTF-8/UTF-8"
   ];
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
   # programs.nix-ld.enable = true;
 
   programs.dconf.enable = true;
@@ -93,15 +87,17 @@
     libreoffice-fresh
     (sageWithDoc.override { requireSageTests = false; })
     youtube-music
-    qq
+#    qq
     vesktop
     nix-output-monitor
     jujutsu
     zotero_7
     fortune-kind
-    parsec-bin
+#    parsec-bin
     keymapp
-    zed-editor
+#    zed-editor
+    tinymist
+    anki
   ];
   fonts = {
     fontDir.enable = true;
@@ -112,5 +108,10 @@
       noto-fonts-cjk-sans
       # (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 }

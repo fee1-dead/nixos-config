@@ -41,7 +41,7 @@
 #    qq
 #    audacity
 #    youtube-music
-    lutris
+#    lutris
     zola
     libsForQt5.plasma-vault
 #    kmail
