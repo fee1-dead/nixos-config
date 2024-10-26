@@ -58,8 +58,7 @@
   virtualisation.podman = {
     enable = true;
   };
-  hardware.opengl.extraPackages = with pkgs; [
-    rocm-opencl-icd
+  hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.rocm-runtime
   ];
   services.xserver.videoDrivers = [ "modesetting" ];
