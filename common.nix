@@ -4,7 +4,10 @@
 
 { config, pkgs, lib, inputs, ... }:
 {
-  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+  nix.settings = {
+    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+    trusted-users = [ "root" "@wheel" ];
+  };
   system.activationScripts.diff = {
     supportsDryActivation = true;
     text = ''
