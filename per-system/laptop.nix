@@ -50,7 +50,7 @@
     audacity
     tenacity
     jre_minimal
-    # jetbrains.idea-community
+    jetbrains.idea-community
   ];
 
 
