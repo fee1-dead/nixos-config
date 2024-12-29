@@ -88,7 +88,8 @@
     wezterm
     gcc
     libreoffice-fresh
-    (sageWithDoc.override { requireSageTests = false; })
+#   https://github.com/NixOS/nixpkgs/issues/368655
+#   (sageWithDoc.override { requireSageTests = false; })
     youtube-music
 #    qq
     vesktop
