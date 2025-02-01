@@ -102,7 +102,9 @@
 #    zed-editor
     tinymist
     anki
+    osu-lazer-bin
   ];
+  hardware.opentabletdriver.enable = true;
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [

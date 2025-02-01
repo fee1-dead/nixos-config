@@ -14,7 +14,8 @@
       system = "x86_64-linux";
       config = {
         allowUnfree = true;
-        rocmSupport = true;
+        # TODO/FIXME
+#        rocmSupport = true;
       };
     };
   in {

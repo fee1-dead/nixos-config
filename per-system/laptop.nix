@@ -50,12 +50,10 @@
     tenacity
     jre_minimal
 #    jetbrains.idea-community
-    osu-lazer-bin
   ];
 
 
   hardware.bluetooth.enable = true;
-  hardware.opentabletdriver.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

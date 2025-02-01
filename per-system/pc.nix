@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ../services/redis.nix
+#    ../services/redis.nix
+    ../services/printing.nix
   ];
   nix.settings.trusted-substituters = ["https://ai.cachix.org"];
   nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
@@ -28,8 +29,8 @@
     llama-cpp
     python3
     gnumake
-    bottles
-    wine
+#    bottles
+#    wine
     distrobox
     tor-browser-bundle-bin
     qemu
@@ -65,7 +66,7 @@
     enable = true;
   };
   hardware.graphics.extraPackages = with pkgs; [
-    rocmPackages.rocm-runtime
+#    rocmPackages.rocm-runtime
   ];
   services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
