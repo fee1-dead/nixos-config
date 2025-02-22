@@ -61,7 +61,7 @@
     '';
   }; in [
     "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
-    ]; */
+  ]; */
   virtualisation.podman = {
     enable = true;
   };

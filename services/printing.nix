@@ -5,9 +5,6 @@
   # currently fails
   services.printing.drivers = with pkgs; [
     cnijfilter2
-    (cnijfilter_4_00.overrideAttrs (oldAttrs: rec {
-      name = "cnijfilter-patched";
-      patches = oldAttrs.patches ++ [./aaaaa.patch];
-    }))
+    cnijfilter_4_00
   ];
 }
