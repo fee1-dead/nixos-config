@@ -39,6 +39,7 @@
          -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
          "$@"
      '')
+    cloudflared
   ];
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
