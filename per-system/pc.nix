@@ -71,8 +71,8 @@
   ];
   services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
-  services.hardware.openrgb = {
+  /* services.hardware.openrgb = {
     enable = true;
     motherboard = "amd";
-  };
+  }; */
 }
