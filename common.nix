@@ -5,7 +5,7 @@
 { config, pkgs, lib, inputs, ... }:
 {
   nix.settings = {
-    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+#    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
     trusted-users = [ "root" "@wheel" ];
   };
   system.activationScripts.diff = {

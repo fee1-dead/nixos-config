@@ -4,8 +4,8 @@
 #    ../services/redis.nix
     ../services/printing.nix
   ];
-  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
-  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
+#  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
+#  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 
   networking.hostName = "uwu"; # Define your hostname.
   system.stateVersion = "24.05";
@@ -40,6 +40,9 @@
          "$@"
      '')
     cloudflared
+    jetbrains.idea-community
+    sshfs
+    kdePackages.audex
   ];
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
