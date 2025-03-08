@@ -41,7 +41,7 @@
 # idk
 #     cloudflare-warp
     cloudflared
-    typst-lsp
+    tinymist
     zoom-us
     scrcpy
     kitty
