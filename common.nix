@@ -103,6 +103,9 @@
     tinymist
     anki
     osu-lazer-bin
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
+    kdePackages.audiocd-kio
   ];
   hardware.opentabletdriver.enable = true;
   fonts = {
