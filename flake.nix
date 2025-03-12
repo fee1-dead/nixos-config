@@ -29,7 +29,7 @@
         home-manager.nixosModules.home-manager {
           home-manager.users.beef = import ./users/beef/home.nix;
         }
-        lix-module.nixosModules.default
+#        lix-module.nixosModules.default
       ];
       
     };

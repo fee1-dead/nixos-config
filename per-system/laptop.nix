@@ -16,7 +16,7 @@
 #      ./services/virtualbox.nix
 #      ./services/redis.nix
 
-      ../media/plex.nix
+#      ../media/plex.nix
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -33,7 +33,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   environment.systemPackages = with pkgs; [
-    wineWowPackages.unstableFull
+    # wineWowPackages.unstableFull
     wget
     gparted
     ripgrep
@@ -42,13 +42,13 @@
 #     cloudflare-warp
     cloudflared
     tinymist
-    zoom-us
-    scrcpy
-    kitty
-    calibre
-    audacity
-    tenacity
-    jre_minimal
+    # zoom-us
+    # scrcpy
+    # kitty
+    # calibre
+    # audacity
+    # tenacity
+    # jre_minimal
 #    jetbrains.idea-community
   ];
 
