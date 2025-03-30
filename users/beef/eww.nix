@@ -2,6 +2,6 @@
 {
   programs.eww = {
     enable = true;
-    configDir = "/etc/nixos/users/beef/eww";
+    configDir = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/users/beef/eww";
   };
 }
