@@ -88,9 +88,24 @@
     libreoffice-fresh
 #   https://github.com/NixOS/nixpkgs/issues/368655
 #   (sageWithDoc.override { requireSageTests = false; })
-    youtube-music
+    (symlinkJoin {
+      name = "youtube-music";
+      paths = [ youtube-music ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/youtube-music --add-flags "--wayland-text-input-version=3"
+      '';
+    })
 #    qq
-    vesktop
+    (symlinkJoin {
+      name = "vesktop";
+      paths = [ vesktop ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/vesktop --add-flags "--wayland-text-input-version=3"
+      '';
+    })
+    
     jujutsu
     zotero_7
     fortune-kind
