@@ -91,7 +91,6 @@
     youtube-music
 #    qq
     vesktop
-    nix-output-monitor
     jujutsu
     zotero_7
     fortune-kind
@@ -106,9 +105,14 @@
     kdePackages.audiocd-kio
     activitywatch
     awatcher
-    nh
     # (makeAutostartItem { name = "awatcher"; package = awatcher; })
   ];
+  programs.nh = {
+    enable = true;
+    #clean.enable = true;
+    #clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/etc/nixos";
+  };
   hardware.opentabletdriver.enable = true;
   fonts = {
     fontDir.enable = true;
