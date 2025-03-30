@@ -8,12 +8,6 @@
 #    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
     trusted-users = [ "root" "@wheel" ];
   };
-  system.activationScripts.diff = {
-    supportsDryActivation = true;
-    text = ''
-      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
-    '';
-  };
   imports = [
     ./dev/common.nix
     ./dev/nix.nix
@@ -112,6 +106,7 @@
     kdePackages.audiocd-kio
     activitywatch
     awatcher
+    nh
     # (makeAutostartItem { name = "awatcher"; package = awatcher; })
   ];
   hardware.opentabletdriver.enable = true;
