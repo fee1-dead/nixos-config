@@ -1,0 +1,8 @@
+spawn-at-startup "mako"
+binds {
+    // Run alacritty.
+    Mod+T { spawn "alacritty"; }
+
+    // Run `wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+`.
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+}

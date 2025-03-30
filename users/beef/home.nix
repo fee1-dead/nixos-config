@@ -1,6 +1,6 @@
 { config, pkgs, nixpkgs, ... }:
 {
-  imports = [ ./eww.nix ];
+  imports = [ ./eww.nix ./niri.nix];
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -45,6 +45,7 @@
 #    lutris
     zola
     libsForQt5.plasma-vault
+    mako
 #    kmail
   ];
 

@@ -2,6 +2,6 @@
 {
   programs.eww = {
     enable = true;
-    configDir = ./eww;
+    configDir = "/etc/nixos/users/beef/eww";
   };
 }
