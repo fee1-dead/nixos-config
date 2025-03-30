@@ -44,7 +44,10 @@
     "zh_CN.UTF-8/UTF-8"
   ];
 
-  # programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = [ pkgs.nss ];
+  };
 
   programs.dconf.enable = true;
 
@@ -85,6 +88,7 @@
     gparted
     ripgrep
     prismlauncher
+#    nss # required by minecraft
     wezterm
     gcc
     libreoffice-fresh
@@ -106,6 +110,9 @@
     kdePackages.kio-fuse
     kdePackages.kio-extras
     kdePackages.audiocd-kio
+    activitywatch
+    awatcher
+    # (makeAutostartItem { name = "awatcher"; package = awatcher; })
   ];
   hardware.opentabletdriver.enable = true;
   fonts = {
@@ -115,6 +122,7 @@
       ibm-plex
       noto-fonts
       noto-fonts-cjk-sans
+      nerd-fonts.iosevka
       # (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];
   };

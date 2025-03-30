@@ -1,5 +1,6 @@
 { config, pkgs, nixpkgs, ... }:
 {
+  imports = [ ./eww.nix ];
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -25,7 +26,7 @@
     git-absorb
     vlc
     # discord
-    huggle
+#    huggle
     # layan-kde
 #    layan-gtk-theme
 #    libsForQt5.qtstyleplugin-kvantum

@@ -1,0 +1,52 @@
+(defwidget bar []
+  (box :orientation "h"
+    
+    (sidestuff)))
+
+(defwidget tray []
+    (box :class "systray" (systray))
+)
+
+; (defwidget launcher [] ())
+
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (tray)
+    (metric :label ""
+            :value {volume*100}
+            :onchange "")
+    {formattime(EWW_TIME, "%F %T")}
+    ))
+
+
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll volume :interval "1s"
+  "wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d' ' -f2")
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "90%"
+                      :height "10px"
+                      :anchor "bottom center")
+  :reserve (struts :side "bottom" :distance "5%")
+  (bar))
