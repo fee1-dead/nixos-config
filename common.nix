@@ -108,19 +108,20 @@
     
     jujutsu
     zotero_7
-    fortune-kind
+#    fortune-kind
 #    parsec-bin
     keymapp
 #    zed-editor
     tinymist
     anki
-    osu-lazer-bin
-    kdePackages.kio-fuse
-    kdePackages.kio-extras
-    kdePackages.audiocd-kio
-    activitywatch
-    awatcher
+#    osu-lazer-bin
+#    kdePackages.kio-fuse
+#    kdePackages.kio-extras
+#    kdePackages.audiocd-kio
+#    activitywatch
+#    awatcher
     # (makeAutostartItem { name = "awatcher"; package = awatcher; })
+    logseq
   ];
   programs.nh = {
     enable = true;
@@ -141,7 +142,7 @@
     ];
   };
   programs.steam = {
-    enable = true;
+    enable = false;#true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
