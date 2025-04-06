@@ -9,6 +9,8 @@
 
 ; (defwidget launcher [] ())
 
+(defwidget date [] (label :class "date" :text {formattime(EWW_TIME, "%F %T")}))
+
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
@@ -16,7 +18,7 @@
     (metric :label ""
             :value {volume*100}
             :onchange "")
-    {formattime(EWW_TIME, "%F %T")}
+    (date)
     ))
 
 
@@ -48,5 +50,5 @@
                       :width "90%"
                       :height "10px"
                       :anchor "bottom center")
-  :reserve (struts :side "bottom" :distance "5%")
+  :exclusive true
   (bar))
