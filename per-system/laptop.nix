@@ -40,7 +40,7 @@
     mihomo # renamed from clash-meta
 # idk
 #     cloudflare-warp
-    cloudflared
+#    cloudflared
     tinymist
     # zoom-us
     # scrcpy

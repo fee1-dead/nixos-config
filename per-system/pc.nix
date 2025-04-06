@@ -66,7 +66,7 @@
          -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
          "$@"
      '')
-    cloudflared
+#    cloudflared
     jetbrains.idea-community
     sshfs
 #    kdePackages.audex
