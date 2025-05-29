@@ -42,7 +42,7 @@
 #     cloudflare-warp
 #    cloudflared
     tinymist
-    # zoom-us
+    zoom-us
     # scrcpy
     # kitty
     # calibre
