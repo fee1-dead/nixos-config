@@ -114,7 +114,7 @@
 #    zed-editor
     tinymist
     anki
-#    osu-lazer-bin
+    osu-lazer-bin
 #    kdePackages.kio-fuse
 #    kdePackages.kio-extras
 #    kdePackages.audiocd-kio

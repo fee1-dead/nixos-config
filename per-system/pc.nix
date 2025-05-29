@@ -3,7 +3,7 @@
   imports = [
 #    ../services/redis.nix
     ../services/printing.nix
-    ../services/networking.nix
+#    ../services/networking.nix
     ../media/niri.nix
   ];
 #  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
@@ -11,7 +11,31 @@
 
   networking.hostName = "uwu"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking = {
+    interfaces.enp14s0 = {
+      ipv4.addresses = [{
+        address = "192.168.101.53";
+        prefixLength = 24;
+      }];
+    };
+    defaultGateway = {
+      address = "192.168.101.1";
+      interface = "enp14s0";
+    };
+    defaultGateway6 = {
+      address = "fe80::101";
+      interface = "enp14s0";
+    };
+  };
   system.stateVersion = "24.05";
+
+  users.users.beef.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKbRYdNbAklKJBWZaCg3DWsOr/iSd8fVsMrMiZR+JNS4 beef@nixos"
+  ];
+
+  swapDevices = [{
+    device = "/swapfile";
+  }];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPatches = [
