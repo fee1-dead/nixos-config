@@ -65,7 +65,7 @@
 
   services.dae = {
     configFile = "/etc/nixos/services/config.dae";
-    # enable = true;
+    enable = true;
   };
 
   # This value determines the NixOS release from which the default
