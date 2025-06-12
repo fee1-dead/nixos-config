@@ -122,6 +122,8 @@
 #    awatcher
     # (makeAutostartItem { name = "awatcher"; package = awatcher; })
     logseq
+    kdePackages.karousel
+    glibc.static # rustc wants it, for some reason
   ];
   programs.nh = {
     enable = true;

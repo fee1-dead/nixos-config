@@ -11,13 +11,13 @@ node {
 dns {
   upstream {
     alidns: 'udp://223.5.5.5:53'
-#    cloudflaredns: 'udp://8.8.8.8:53'
+    cloudflaredns: 'https://cloudflare-dns.com/dns-query'
     googledns: 'tcp+udp://dns.google.com:53'
   }
   routing {
     request {
       qname(geosite:cn) -> alidns
-      fallback: googledns
+      fallback: cloudflaredns
     }
   }
 }

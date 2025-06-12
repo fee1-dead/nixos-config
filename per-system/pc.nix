@@ -3,7 +3,7 @@
   imports = [
 #    ../services/redis.nix
     ../services/printing.nix
-#    ../services/networking.nix
+    ../services/networking.nix
     ../media/niri.nix
   ];
 #  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
@@ -11,7 +11,7 @@
 
   networking.hostName = "uwu"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
-  networking = {
+  /* networking = {
     interfaces.enp14s0 = {
       ipv4.addresses = [{
         address = "192.168.101.53";
@@ -26,7 +26,7 @@
       address = "fe80::101";
       interface = "enp14s0";
     };
-  };
+  }; */
   system.stateVersion = "24.05";
 
   users.users.beef.openssh.authorizedKeys.keys = [
@@ -71,6 +71,8 @@
     sshfs
 #    kdePackages.audex
     eww
+    mihomo
+    clash-nyanpasu
   ];
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
@@ -102,6 +104,11 @@
   ];
   services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
+
+  services.dae = {
+    configFile = "/etc/nixos/services/config.dae";
+    enable = true;
+  };
   /* services.hardware.openrgb = {
     enable = true;
     motherboard = "amd";
