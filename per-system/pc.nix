@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 {
   imports = [
 #    ../services/redis.nix
@@ -37,7 +37,8 @@
     device = "/swapfile";
   }];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # not _latest because of https://issues.chromium.org/issues/396434686
+  boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelPatches = [
     /* {
       name = "rv";
@@ -73,6 +74,7 @@
     eww
     mihomo
     clash-nyanpasu
+    config.boot.kernelPackages.perf
   ];
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
@@ -100,6 +102,8 @@
     enable = true;
   };
   hardware.graphics.extraPackages = with pkgs; [
+    amdvlk
+    rocmPackages.clr.icd
 #    rocmPackages.rocm-runtime
   ];
   services.xserver.videoDrivers = [ "modesetting" ];

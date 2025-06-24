@@ -88,14 +88,15 @@
     libreoffice-fresh
 #   https://github.com/NixOS/nixpkgs/issues/368655
 #   (sageWithDoc.override { requireSageTests = false; })
-    (symlinkJoin {
+/*    (symlinkJoin {
       name = "youtube-music";
       paths = [ youtube-music ];
       buildInputs = [ makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/youtube-music --add-flags "--wayland-text-input-version=3"
       '';
-    })
+      }) */
+    youtube-music
 #    qq
     (symlinkJoin {
       name = "vesktop";
@@ -121,10 +122,21 @@
 #    activitywatch
 #    awatcher
     # (makeAutostartItem { name = "awatcher"; package = awatcher; })
-    logseq
-    kdePackages.karousel
-    glibc.static # rustc wants it, for some reason
-  ];
+    libwacom
+    rnote
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+    pkgs.buildFHSEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs: 
+        (base.targetPkgs pkgs) ++ (with pkgs; [
+          pkg-config
+        ]
+        );
+        profile = "export FHS=1";
+        runScript = "fish";
+        extraOutputsToInstall = ["dev"];
+      }))
+    ];
   programs.nh = {
     enable = true;
     #clean.enable = true;

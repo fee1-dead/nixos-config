@@ -29,8 +29,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  # use latest linux.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # not _latest because of https://issues.chromium.org/issues/396434686
+  boot.kernelPackages = pkgs.linuxPackages;
 
   environment.systemPackages = with pkgs; [
     # wineWowPackages.unstableFull

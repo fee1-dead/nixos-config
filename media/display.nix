@@ -1,16 +1,15 @@
 { pkgs, ... }:
 {
-  services.displayManager.defaultSession = "plasma";
+  services.displayManager = {
+    defaultSession = "plasma";
+    gdm.enable = true;
+  };
   services.desktopManager.plasma6.enable = true;
   services.xserver = {
     enable = true;
     xkb = {
       variant = "colemak";
       layout = "us";
-    };
-    displayManager = {
-      gdm.enable = true;
-      # defaultSession = "hyprland";
     };
     # displayManager.sddm.enable = true;
 #    desktopManager.gnome.enable = true;
