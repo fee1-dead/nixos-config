@@ -34,7 +34,7 @@
 
 
   services.dae = {
-    configFile = "/etc/nixos/services/config.dae";
+    configFile = "/home/beef/develop/nixos-config/services/config.dae";
     enable = true;
   };
   
@@ -59,6 +59,13 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
+  systemd.services.fprintd = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "simple";
+  };
+  services.fprintd.enable = true;
+  # Don't allow fingerprint for first login
+  security.pam.services.gdm.fprintAuth = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.beef = {
