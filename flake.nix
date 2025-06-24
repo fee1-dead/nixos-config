@@ -8,44 +8,66 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, lix-module, ... } @inputs:
-  let
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      config = {
-        allowUnfree = true;
-        # TODO/FIXME
-#        rocmSupport = true;
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      lix-module,
+      ...
+    }:
+    let
+      _ = import nixpkgs {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+          # TODO/FIXME
+          #        rocmSupport = true;
+        };
+      };
+    in
+    {
+      # HP Laptop
+      nixosConfigurations.owo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./common.nix
+          ./per-system/laptop.nix
+          ./per-system/laptop-hw.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.beef = import ./users/beef/home.nix;
+          }
+          #        lix-module.nixosModules.default
+        ];
+
+      };
+      # PC
+      nixosConfigurations.uwu = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./common.nix
+          ./per-system/pc.nix
+          ./per-system/pc-hw.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.beef = import ./users/beef/home.nix;
+          }
+          lix-module.nixosModules.default
+        ];
+
+      };
+      # ThinkPad
+      nixosConfigurations.ovo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./common.nix
+          ./per-system/nlaptop.nix
+          ./per-system/nlaptop-hw.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.beef = import ./users/beef/home.nix;
+          }
+        ];
       };
     };
-  in {
-    # HP Laptop
-    nixosConfigurations.owo = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./common.nix
-        ./per-system/laptop.nix
-        ./per-system/laptop-hw.nix
-        home-manager.nixosModules.home-manager {
-          home-manager.users.beef = import ./users/beef/home.nix;
-        }
-#        lix-module.nixosModules.default
-      ];
-      
-    };
-    # PC
-    nixosConfigurations.uwu = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./common.nix
-        ./per-system/pc.nix
-        ./per-system/pc-hw.nix
-        home-manager.nixosModules.home-manager {
-          home-manager.users.beef = import ./users/beef/home.nix;
-        }
-        lix-module.nixosModules.default
-      ];
-      
-    };
-  };
 }

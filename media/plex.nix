@@ -7,5 +7,5 @@
   };
 
   # do not start on system boot
-  systemd.services.plex.wantedBy = lib.mkForce [];
+  systemd.services.plex.wantedBy = lib.mkForce [ ];
 }

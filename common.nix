@@ -1,12 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, ... }:
 {
   nix.settings = {
-#    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
-    trusted-users = [ "root" "@wheel" ];
+    #    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
   };
   imports = [
     ./dev/common.nix
@@ -17,9 +16,11 @@
     ./services/kdeconnect.nix
   ];
 
-  nixpkgs.overlays = [ (final: prev: { 
-    
-  }) ];
+  nixpkgs.overlays = [
+    (final: prev: {
+
+    })
+  ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -27,7 +28,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
-
 
   time.timeZone = "Asia/Kuala_Lumpur";
 
@@ -82,22 +82,24 @@
     gparted
     ripgrep
     prismlauncher
-#    nss # required by minecraft
+    #    nss # required by minecraft
     wezterm
     gcc
     libreoffice-fresh
-#   https://github.com/NixOS/nixpkgs/issues/368655
-#   (sageWithDoc.override { requireSageTests = false; })
-/*    (symlinkJoin {
-      name = "youtube-music";
-      paths = [ youtube-music ];
-      buildInputs = [ makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/youtube-music --add-flags "--wayland-text-input-version=3"
-      '';
-      }) */
+    #   https://github.com/NixOS/nixpkgs/issues/368655
+    #   (sageWithDoc.override { requireSageTests = false; })
+    /*
+      (symlinkJoin {
+         name = "youtube-music";
+         paths = [ youtube-music ];
+         buildInputs = [ makeWrapper ];
+         postBuild = ''
+           wrapProgram $out/bin/youtube-music --add-flags "--wayland-text-input-version=3"
+         '';
+         })
+    */
     youtube-music
-#    qq
+    #    qq
     (symlinkJoin {
       name = "vesktop";
       paths = [ vesktop ];
@@ -106,42 +108,52 @@
         wrapProgram $out/bin/vesktop --add-flags "--wayland-text-input-version=3"
       '';
     })
-    
+
     jujutsu
     zotero_7
-#    fortune-kind
-#    parsec-bin
+    #    fortune-kind
+    #    parsec-bin
     keymapp
-#    zed-editor
+    #    zed-editor
     tinymist
     anki
-    osu-lazer-bin
-#    kdePackages.kio-fuse
-#    kdePackages.kio-extras
-#    kdePackages.audiocd-kio
-#    activitywatch
-#    awatcher
+    #    osu-lazer-bin
+    #    kdePackages.kio-fuse
+    #    kdePackages.kio-extras
+    #    kdePackages.audiocd-kio
+    #    activitywatch
+    #    awatcher
     # (makeAutostartItem { name = "awatcher"; package = awatcher; })
     libwacom
     rnote
-    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-    pkgs.buildFHSEnv (base // {
-      name = "fhs";
-      targetPkgs = pkgs: 
-        (base.targetPkgs pkgs) ++ (with pkgs; [
-          pkg-config
-        ]
-        );
-        profile = "export FHS=1";
-        runScript = "fish";
-        extraOutputsToInstall = ["dev"];
-      }))
-    ];
+    (
+      let
+        base = pkgs.appimageTools.defaultFhsEnvArgs;
+      in
+      pkgs.buildFHSEnv (
+        base
+        // {
+          name = "fhs";
+          targetPkgs =
+            pkgs:
+            (base.targetPkgs pkgs)
+            ++ (with pkgs; [
+              pkg-config
+            ]);
+          profile = "export FHS=1";
+          runScript = "fish";
+          extraOutputsToInstall = [ "dev" ];
+        }
+      )
+    )
+    nixfmt-rfc-style
+    nil
+  ];
   programs.nh = {
     enable = true;
     #clean.enable = true;
     #clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/etc/nixos";
+    flake = "/home/beef/develop/nixos-config";
   };
   hardware.opentabletdriver.enable = true;
   fonts = {

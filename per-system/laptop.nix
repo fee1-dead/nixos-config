@@ -1,22 +1,27 @@
-{ config, pkgs, lib, inputs, ... }:
 {
-  imports =
-    [
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
+  imports = [
     ../services/avahi.nix
     ../services/battery.nix
     ../services/computing.nix
-#      ./services/docker.nix
+    #      ./services/docker.nix
     ../services/flatpak.nix
     ../services/networking.nix
     ../services/input.nix
     ../services/printing.nix
     ../services/scanning.nix
-#      ./services/waydroid.nix
-#      ./services/virt.nix
-#      ./services/virtualbox.nix
-#      ./services/redis.nix
+    #      ./services/waydroid.nix
+    #      ./services/virt.nix
+    #      ./services/virtualbox.nix
+    #      ./services/redis.nix
 
-#      ../media/plex.nix
+    #      ../media/plex.nix
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -38,9 +43,9 @@
     gparted
     ripgrep
     mihomo # renamed from clash-meta
-# idk
-#     cloudflare-warp
-#    cloudflared
+    # idk
+    #     cloudflare-warp
+    #    cloudflared
     tinymist
     zoom-us
     # scrcpy
@@ -49,9 +54,8 @@
     # audacity
     # tenacity
     # jre_minimal
-#    jetbrains.idea-community
+    #    jetbrains.idea-community
   ];
-
 
   hardware.bluetooth.enable = true;
 
