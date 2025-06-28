@@ -1,6 +1,6 @@
-{ config, pkgs, nixpkgs, ... }:
+{ pkgs, ... }:
 {
-  imports = [ ./eww.nix ./niri.nix];
+  imports = [ ./eww.nix ./niri.nix ];
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -12,42 +12,6 @@
     MOZ_USE_XINPUT2 = "1";
   };
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
-  home.packages = with pkgs; [
-#    anki
-#    iosevka
-#    wget
-#    rnix-lsp
-#    jetbrains.idea-community
-    obs-studio
-    kdePackages.kdenlive
-    rubberband
-    mlt
-    rustup
-    git-absorb
-    vlc
-    # discord
-#    huggle
-    # layan-kde
-#    layan-gtk-theme
-#    libsForQt5.qtstyleplugin-kvantum
-    kdePackages.konversation
-    kdePackages.filelight
-    chromium
-#    texlive.combined.scheme-full
-#    geogebra
-#    zulip
-#    premid
-#    element-desktop
-#    osu-lazer
-#    qq
-#    audacity
-#    youtube-music
-#    lutris
-    zola
-    libsForQt5.plasma-vault
-    mako
-#    kmail
-  ];
 
   programs.vscode = {
     enable = true;

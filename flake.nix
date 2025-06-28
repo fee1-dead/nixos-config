@@ -26,21 +26,6 @@
       };
     in
     {
-      # HP Laptop
-      nixosConfigurations.owo = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./common.nix
-          ./per-system/laptop.nix
-          ./per-system/laptop-hw.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.beef = import ./users/beef/home.nix;
-          }
-          #        lix-module.nixosModules.default
-        ];
-
-      };
       # PC
       nixosConfigurations.uwu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -61,8 +46,8 @@
         system = "x86_64-linux";
         modules = [
           ./common.nix
-          ./per-system/nlaptop.nix
-          ./per-system/nlaptop-hw.nix
+          ./per-system/thinkpad.nix
+          ./per-system/thinkpad-hw.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.beef = import ./users/beef/home.nix;

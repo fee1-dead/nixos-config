@@ -1,9 +1,10 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
-#    ../services/redis.nix
     ../services/printing.nix
     ../services/networking.nix
+    ../services/tor.nix
+    ../services/dae.nix
     ../media/niri.nix
   ];
 #  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
@@ -37,17 +38,9 @@
     device = "/swapfile";
   }];
 
-  # not _latest because of https://issues.chromium.org/issues/396434686
-  boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelPatches = [
-    /* {
-      name = "rv";
-      patch = ./reversed.patch;
-    } */
-  ];
-#  boot.kernelPackages = pkgs.linuxPackages_6_4;
+
 #  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
-#  systemd.services.nix-daemon.environment.all_proxy = "socks5h://192.168.2.209:7891";
+
   environment.systemPackages = with pkgs; [
     blender-hip
     qq
@@ -70,10 +63,8 @@
 #    cloudflared
     jetbrains.idea-community
     sshfs
-#    kdePackages.audex
     eww
     mihomo
-    clash-nyanpasu
     config.boot.kernelPackages.perf
   ];
   programs.corectrl.enable = true;
@@ -108,32 +99,4 @@
   ];
   services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
-
-  services.dae = {
-    configFile = "/etc/nixos/services/config.dae";
-    enable = true;
-  };
-  /* services.hardware.openrgb = {
-    enable = true;
-    motherboard = "amd";
-  }; */
-  services.mediawiki = {
-    enable = false;
-    httpd.virtualHost = {
-      hostName = "localhost";
-      adminAddr = "root@example.com";
-    };
-    passwordFile = pkgs.writeText "password" "hunter2wastaken";
-    extensions = {
-      SecurePoll = pkgs.fetchzip {
-        url = "https://extdist.wmflabs.org/dist/extensions/SecurePoll-REL1_43-1d05ca6.tar.gz";
-        hash = "sha256-oSa9enNvqJ6KiWrPyoxBNch7xYq3gxxxxf/byQm3lAw=";
-      };
-    };
-    extraConfig = ''
-      $wgGroupPermissions['electionadmin']['securepoll-create-poll'] = true;
-      $wgGroupPermissions['electionadmin']['securepoll-edit-poll'] = true;
-      $wgGroupPermissions['electionadmin']['securepoll-view-voter-pii'] = true;
-    '';
-  };
 }

@@ -1,10 +1,13 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  # currently fails
-  services.printing.drivers = with pkgs; [
-#    cnijfilter2
-#    cnijfilter_4_00
-  ];
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  services.printing = {
+    enable = true;
+    # drivers = with pkgs; [];
+  };
+  hardware.sane.enable = true;
 }

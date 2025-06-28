@@ -13,7 +13,9 @@
     ./media/sound.nix
     ./media/display.nix
     ./services/input.nix
+    ./services/dae.nix
     ./services/kdeconnect.nix
+    ./services/networking.nix
   ];
 
   nixpkgs.overlays = [
@@ -24,10 +26,14 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    supportedFilesystems = [ "ntfs" ];
+  };
 
   time.timeZone = "Asia/Kuala_Lumpur";
 
@@ -37,16 +43,17 @@
     "en_US.UTF-8/UTF-8"
     "zh_CN.UTF-8/UTF-8"
   ];
-
-  programs.nix-ld = {
-    enable = true;
-    libraries = [ pkgs.nss ];
+  console = {
+    font = "Lat2-Terminus16";
+    useXkbConfig = true;
   };
 
-  programs.dconf.enable = true;
-
-  programs.fish.enable = true;
-  programs.fuse.userAllowOther = true;
+  programs = {
+    dconf.enable = true;
+    fish.enable = true;
+    fuse.userAllowOther = true;
+    firefox.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.beef = {
@@ -64,7 +71,6 @@
       "render"
     ];
     packages = with pkgs; [
-      firefox
       kdePackages.kate
       kdePackages.skanlite
       samba
@@ -99,7 +105,7 @@
          })
     */
     youtube-music
-    #    qq
+    qq
     (symlinkJoin {
       name = "vesktop";
       paths = [ vesktop ];
@@ -148,6 +154,18 @@
     )
     nixfmt-rfc-style
     nil
+    obs-studio
+    kdePackages.kdenlive
+    rubberband
+    mlt
+    rustup
+    git-absorb
+    vlc
+    kdePackages.konversation
+    kdePackages.filelight
+    chromium
+    zola
+    libsForQt5.plasma-vault
   ];
   programs.nh = {
     enable = true;
