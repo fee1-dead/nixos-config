@@ -64,7 +64,6 @@
     jetbrains.idea-community
     sshfs
     eww
-    mihomo
     config.boot.kernelPackages.perf
   ];
   programs.corectrl.enable = true;

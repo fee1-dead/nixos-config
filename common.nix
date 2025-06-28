@@ -166,6 +166,7 @@
     chromium
     zola
     libsForQt5.plasma-vault
+    mihomo
   ];
   programs.nh = {
     enable = true;
