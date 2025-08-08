@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./eww.nix ./niri.nix ];
+  # imports = [ ./eww.nix ./niri.nix];
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

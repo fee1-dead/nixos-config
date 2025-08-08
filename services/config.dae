@@ -51,7 +51,7 @@ routing {
   # domain(suffix: steamserver.net) -> direct
   # pname(qbittorrent) -> direct
   # domain(suffix: infra.rust-lang.org) -> direct
-  dport(22) -> direct
+  # dport(22) -> direct
 
   dip(224.0.0.0/3, 'ff00::/8') -> direct
   dip(geoip:private) -> direct
