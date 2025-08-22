@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  nix.package = pkgs.lix;
   nix.settings = {
     #    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
     trusted-users = [
