@@ -17,7 +17,7 @@ dns {
   routing {
     request {
       qname(geosite:cn) -> alidns
-      fallback: cloudflaredns
+      fallback: cloudflaredns 
     }
   }
 }
@@ -51,6 +51,7 @@ routing {
   # domain(suffix: steamserver.net) -> direct
   # pname(qbittorrent) -> direct
   # domain(suffix: infra.rust-lang.org) -> direct
+  domain(suffix: maj-soul.com) -> direct
   # dport(22) -> direct
 
   dip(224.0.0.0/3, 'ff00::/8') -> direct

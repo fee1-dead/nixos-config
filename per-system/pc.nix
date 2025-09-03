@@ -4,7 +4,6 @@
     ../services/printing.nix
     ../services/networking.nix
     ../services/tor.nix
-    ../services/dae.nix
 #    ../media/niri.nix
   ];
 #  nix.settings.trusted-substituters = ["https://ai.cachix.org"];

@@ -14,7 +14,7 @@
     ./media/sound.nix
     ./media/display.nix
     ./services/input.nix
-    ./services/dae.nix
+    # ./services/dae.nix
     ./services/kdeconnect.nix
     ./services/networking.nix
   ];
@@ -36,7 +36,7 @@
     supportedFilesystems = [ "ntfs" ];
   };
 
-  time.timeZone = "Asia/Kuala_Lumpur";
+  time.timeZone = "America/Toronto";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
