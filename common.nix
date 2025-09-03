@@ -85,7 +85,7 @@
     wget
     vlc
     kdePackages.ark
-    libsForQt5.kclock
+    # libsForQt5.kclock
     gparted
     ripgrep
     prismlauncher
@@ -166,7 +166,7 @@
     kdePackages.filelight
     chromium
     zola
-    libsForQt5.plasma-vault
+    # libsForQt5.plasma-vault
     mihomo
   ];
   programs.nh = {
