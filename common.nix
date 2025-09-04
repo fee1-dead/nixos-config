@@ -168,6 +168,7 @@
     zola
     # libsForQt5.plasma-vault
     mihomo
+    racket
   ];
   programs.nh = {
     enable = true;
