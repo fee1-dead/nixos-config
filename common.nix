@@ -166,9 +166,20 @@
     kdePackages.filelight
     chromium
     zola
-    # libsForQt5.plasma-vault
+    kdePackages.plasma-vault
     mihomo
     racket
+    cloudflare-warp
+    # the list below are needed to compile linux
+    gnumake
+    flex
+    bison
+    pkg-config
+    ncurses
+    clang
+    lld
+    rust-bindgen
+    python3
   ];
   programs.nh = {
     enable = true;
