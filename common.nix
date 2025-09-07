@@ -172,6 +172,9 @@
     cloudflare-warp
     distrobox
   ];
+  virtualisation.podman = {
+    enable = true;
+  };
   programs.nh = {
     enable = true;
     #clean.enable = true;

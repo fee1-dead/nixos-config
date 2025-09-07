@@ -86,9 +86,6 @@
   }; in [
     "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
   ]; */
-  virtualisation.podman = {
-    enable = true;
-  };
   hardware.graphics.extraPackages = with pkgs; [
     amdvlk
     rocmPackages.clr.icd
