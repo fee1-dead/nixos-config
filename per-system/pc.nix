@@ -51,7 +51,6 @@
     gnumake
 #    bottles
 #    wine
-    distrobox
     tor-browser-bundle-bin
     qemu
     (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
