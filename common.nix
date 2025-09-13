@@ -171,10 +171,10 @@
     racket
     cloudflare-warp
     distrobox
+    thunderbird
   ];
-  virtualisation.podman = {
-    enable = true;
-  };
+  virtualisation.containers.enable = true;
+  virtualisation.podman.enable = true;
   programs.nh = {
     enable = true;
     #clean.enable = true;

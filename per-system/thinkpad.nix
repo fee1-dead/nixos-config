@@ -1,11 +1,15 @@
 { ... }:
 
 {
-  imports = [ ../services/fprint.nix ];
+  imports = [
+    ../services/fprint.nix
+    ../services/bluetooth.nix
+    ../services/mediawiki.nix
+  ];
   networking.hostName = "ovo"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -31,5 +35,3 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment?
 }
-
-

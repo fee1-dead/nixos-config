@@ -1,0 +1,25 @@
+{
+    "ldap1.csclub.uwaterloo.ca": {
+        "connection": {
+            "server": "ldap1.csclub.uwaterloo.ca",
+            "port": "389",
+            "enctype": "clear",
+            "basedn": "dc=csclub,dc=uwaterloo,dc=ca",
+            "groupbasedn": "dc=csclub,dc=uwaterloo,dc=ca",
+            "userbasedn": "ou=People,dc=csclub,dc=uwaterloo,dc=ca",
+            "searchattribute": "uid",
+            "usernameattribute": "uid",
+            "realnameattribute": "cn",
+            "emailattribute": "maillocaladdress",
+            "userinfoattributes": ["uid", "cn", "maillocaladdress", "givenname"],
+            "presearchusernamemodifiers": [ "lowercase" ]
+        },
+		"userinfo": {
+			"attributes-map": {
+				"email": "maillocaladdress",
+				"realname": "cn",
+				"nickname": "givenname"
+			}
+		}
+    }
+}
