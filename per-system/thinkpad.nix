@@ -4,7 +4,7 @@
   imports = [
     ../services/fprint.nix
     ../services/bluetooth.nix
-    ../services/mediawiki.nix
+#    ../services/mediawiki.nix
   ];
   networking.hostName = "ovo"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -13,6 +13,10 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
+  swapDevices = [{
+    device = "/swap/swapfile";
+    size = 16*1024;
+  }];
 
   # nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 

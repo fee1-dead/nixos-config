@@ -28,7 +28,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages/*_latest*/;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -172,7 +172,14 @@
     cloudflare-warp
     distrobox
     thunderbird
+    zoom-us
+    coq
+    coqPackages.stdlib
+    coqPackages.mathcomp
+    coqPackages.mathcomp-ssreflect
+    coqPackages.vscoq-language-server
   ];
+  environment.variables.ROCQ_PATH = "/run/current-system/sw/lib/coq/9.0/user-contrib/";
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
   programs.nh = {
@@ -181,7 +188,7 @@
     #clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/beef/develop/nixos-config";
   };
-  hardware.opentabletdriver.enable = true;
+  # hardware.opentabletdriver.enable = true;
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
