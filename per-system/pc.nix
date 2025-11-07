@@ -51,7 +51,7 @@
     gnumake
 #    bottles
 #    wine
-    tor-browser-bundle-bin
+    tor-browser
     qemu
     (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
        qemu-system-x86_64 \
@@ -86,7 +86,6 @@
     "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
   ]; */
   hardware.graphics.extraPackages = with pkgs; [
-    amdvlk
     rocmPackages.clr.icd
 #    rocmPackages.rocm-runtime
   ];
