@@ -59,10 +59,9 @@
          "$@"
      '')
 #    cloudflared
-    jetbrains.idea-community
     sshfs
-    eww
     config.boot.kernelPackages.perf
+    lmms
   ];
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
