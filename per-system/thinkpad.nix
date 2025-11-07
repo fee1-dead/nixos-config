@@ -17,6 +17,19 @@
     device = "/swap/swapfile";
     size = 16*1024;
   }];
+  /*
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };*/
+
 
   # nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 

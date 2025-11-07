@@ -58,9 +58,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Deadbeef";
-    userEmail = "ent3rm4n@gmail.com";
-    extraConfig = {
+    settings = {
+      user.name = "Deadbeef";
+      user.email = "ent3rm4n@gmail.com";
       merge.mergiraf = {
         name = "mergiraf";
         driver = "${pkgs.mergiraf}/bin/mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P";

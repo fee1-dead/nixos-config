@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   nix.package = pkgs.lix;
   nix.settings = {
@@ -8,6 +8,7 @@
       "@wheel"
     ];
   };
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
   imports = [
     ./dev/common.nix
     ./dev/nix.nix
@@ -178,6 +179,7 @@
     coqPackages.mathcomp
     coqPackages.mathcomp-ssreflect
     coqPackages.vscoq-language-server
+    elan
   ];
   environment.variables.ROCQ_PATH = "/run/current-system/sw/lib/coq/9.0/user-contrib/";
   virtualisation.containers.enable = true;

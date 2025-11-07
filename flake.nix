@@ -9,7 +9,7 @@
       nixpkgs,
       home-manager,
       ...
-    }:
+    } @inputs :
     let
       _ = import nixpkgs {
         system = "x86_64-linux";
@@ -24,6 +24,7 @@
       # PC
       nixosConfigurations.uwu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./common.nix
           ./per-system/pc.nix
@@ -38,6 +39,7 @@
       # ThinkPad
       nixosConfigurations.ovo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./common.nix
           ./per-system/thinkpad.nix
