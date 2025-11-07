@@ -61,7 +61,7 @@
 #    cloudflared
     sshfs
     config.boot.kernelPackages.perf
-    lmms
+#    lmms
   ];
   programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
