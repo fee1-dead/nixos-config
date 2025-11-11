@@ -201,6 +201,8 @@
       nerd-fonts.iosevka
       # (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];
+    # emoji
+    fontconfig.useEmbeddedBitmaps = true;
   };
   programs.steam = {
     enable = true;
