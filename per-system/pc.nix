@@ -4,7 +4,7 @@
     ../services/printing.nix
     ../services/networking.nix
     ../services/tor.nix
-#    ../media/niri.nix
+    ../media/niri.nix
   ];
 #  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
 #  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
@@ -46,7 +46,6 @@
     # rocmPackages.hipcc
     # rocmPackages.clr
     nodejs
-    llama-cpp
     python3
     gnumake
 #    bottles
@@ -60,10 +59,15 @@
      '')
 #    cloudflared
     sshfs
-    config.boot.kernelPackages.perf
+    (llama-cpp.override {
+        rocmSupport = true;
+        rocmGpuTargets = [ "gfx1100" ];
+        vulkanSupport = true;
+    })
+
+    perf
 #    lmms
   ];
-  programs.corectrl.enable = true;
   hardware.keyboard.zsa.enable = true;
 
 

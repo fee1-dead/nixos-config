@@ -118,7 +118,7 @@
     })
 
     jujutsu
-    zotero_7
+    zotero
     #    fortune-kind
     #    parsec-bin
     keymapp
