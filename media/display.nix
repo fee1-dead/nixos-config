@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services.displayManager = {
-    defaultSession = "plasma";
+    defaultSession = "niri";
     gdm.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
