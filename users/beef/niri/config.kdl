@@ -1,18 +1,26 @@
 spawn-at-startup "dex -a"
-spawn-at-startup "noctalia-shell"
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T { spawn "wezterm"; }
-    Mod+D { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Alt+F2 { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    Alt+F2 { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "increment" "3";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "decrement" "3";
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "mute";
+    }
     XF86AudioMicMute     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
-    XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    XF86MonBrightnessUp allow-when-locked=true {
+       spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+    }
     Mod+Q { close-window; }
-    Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+L { spawn "dms" "ipc" "call" "lock" "lock"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -62,4 +70,12 @@ input {
             variant "colemak"
         }
     }
+    focus-follows-mouse
+    mouse {
+	accel-speed 0.0
+    }
 }
+include "/home/beef/.config/niri/dms/colors.kdl"
+include "/home/beef/.config/niri/dms/layout.kdl"
+include "/home/beef/.config/niri/dms/alttab.kdl"
+include "/home/beef/.config/niri/dms/binds.kdl"

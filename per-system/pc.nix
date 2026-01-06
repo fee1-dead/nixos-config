@@ -49,7 +49,7 @@
     python3
     gnumake
 #    bottles
-#    wine
+    wineWowPackages.waylandFull
     tor-browser
     qemu
     (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''

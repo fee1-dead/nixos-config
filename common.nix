@@ -106,7 +106,7 @@
          '';
          })
     */
-    youtube-music
+    pear-desktop
     qq
     (symlinkJoin {
       name = "vesktop";
