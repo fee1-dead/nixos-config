@@ -4,6 +4,7 @@
   imports = [
     ../services/fprint.nix
     ../services/bluetooth.nix
+    ../media/niri.nix
 #    ../services/mediawiki.nix
   ];
   networking.hostName = "ovo"; # Define your hostname.
