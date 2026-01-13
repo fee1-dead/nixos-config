@@ -72,7 +72,10 @@ input {
     }
     focus-follows-mouse
     mouse {
-	accel-speed 0.0
+	    accel-speed 0.0
+    }
+    touchpad {
+        tap
     }
 }
 include "/home/beef/.config/niri/dms/colors.kdl"
