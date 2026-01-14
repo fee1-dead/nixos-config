@@ -180,6 +180,7 @@
     coqPackages.mathcomp-ssreflect
     coqPackages.vscoq-language-server
     elan
+    ghc
   ];
   environment.variables.ROCQ_PATH = "/run/current-system/sw/lib/coq/9.0/user-contrib/";
   virtualisation.containers.enable = true;
