@@ -109,8 +109,6 @@
         }
       )
     )
-    nixfmt-rfc-style
-    nil
     rustup
     git-absorb
     cloudflare-warp

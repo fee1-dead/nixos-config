@@ -6,13 +6,23 @@
   ];
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "console=tty1" ];
+    kernelParams = [ "console=tty1" "nokaslr" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ ];
+    extraModprobeConfig = "options nvidia_uvm uvm_disable_hmm=1";
   };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    cudaSupport = true;
+    cudaCapabilities = [ "10.0" "12.0" /* "12.1" */ ];
+  };
+  nixpkgs.overlays = [ (final: prev: { cudaPackages = prev.cudaPackages; }) ];
+
+  programs.firefox.package = pkgs.firefox-bin;
 
   networking.hostName = "awa"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
@@ -38,14 +48,23 @@
      '')
 #    cloudflared
     sshfs
+    
     (llama-cpp.override {
       cudaSupport = true;
+      # cudaPackages = cudaPackages_13;
     })
   ];
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    # open = true;
+    nvidiaPersistenced = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
 
   services.cloudflared = {
     enable = true;

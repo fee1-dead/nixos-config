@@ -10,23 +10,6 @@
       home-manager,
       ...
     } @inputs :
-    let
-      _ = import nixpkgs {
-        system = "x86_64-linux";
-        config = {
-          allowUnfree = true;
-          # TODO/FIXME
-          #        rocmSupport = true;
-        };
-      };
-      nixpkgs-aarch64 = import nixpkgs {
-        system = "aarch64-linux";
-        config = {
-          allowUnfree = true;
-          cudaSupport = true;
-        };
-      };
-    in
     {
       # PC
       nixosConfigurations.uwu = nixpkgs.lib.nixosSystem {

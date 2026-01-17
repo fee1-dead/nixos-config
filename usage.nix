@@ -31,6 +31,8 @@
     zotero
     keymapp
     tinymist
+    nixfmt-rfc-style
+    nil
     anki
     libwacom
     rnote
