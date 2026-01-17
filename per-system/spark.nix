@@ -1,9 +1,12 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ../media/niri.nix
+
   ];
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "console=tty1" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -62,10 +65,18 @@
   }; in [
     "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
   ]; */
-  hardware.graphics.extraPackages = with pkgs; [
-    rocmPackages.clr.icd
-#    rocmPackages.rocm-runtime
-  ];
-  services.xserver.videoDrivers = [ "modesetting" ];
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
+
+  services.cloudflared = {
+    enable = true;
+    tunnels."dfa10061-f423-45e6-8229-c59e86167fd5" = {
+      warp-routing.enabled = true;
+      default = "http_status:404";
+      credentialsFile = "/var/lib/cloudflared/dfa10061-f423-45e6-8229-c59e86167fd5.json";
+    };
+  };
+
   services.openssh.enable = true;
 }
