@@ -64,6 +64,7 @@
         modules = [
           ./base.nix
           ./per-system/spark.nix
+          ./per-system/spark-hw.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.beef = import ./users/beef/home.nix;
