@@ -11,7 +11,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = [ ];
   };
 
   networking.hostName = "awa"; # Define your hostname.
@@ -39,32 +39,10 @@
 #    cloudflared
     sshfs
     (llama-cpp.override {
-        rocmSupport = true;
-        rocmGpuTargets = [ "gfx1100" ];
-        vulkanSupport = true;
+      cudaSupport = true;
     })
   ];
-  hardware.keyboard.zsa.enable = true;
 
-
-  /* systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
-    name = "rocm-merged";
-
-    paths = with pkgs.rocmPackages; [
-      rocm-core clr rccl miopen rocrand rocblas
-      rocsparse hipsparse rocthrust rocprim hipcub roctracer
-      rocfft rocsolver hipfft hipsolver hipblas
-      rocminfo rocm-thunk rocm-comgr rocm-device-libs
-      rocm-runtime clr.icd hipify
-    ];
-
-    # Fix `setuptools` not being found
-    postBuild = ''
-      rm -rf $out/nix-support
-    '';
-  }; in [
-    "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
-  ]; */
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
