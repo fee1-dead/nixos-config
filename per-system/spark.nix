@@ -1,55 +1,32 @@
 { pkgs, config, ... }:
 {
   imports = [
-    ../services/printing.nix
-    ../services/tor.nix
-    ../media/niri.nix
   ];
-#  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
-#  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    supportedFilesystems = [ "ntfs" ];
+  };
 
-  networking.hostName = "uwu"; # Define your hostname.
+  networking.hostName = "awa"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
-  /* networking = {
-    interfaces.enp14s0 = {
-      ipv4.addresses = [{
-        address = "192.168.101.53";
-        prefixLength = 24;
-      }];
-    };
-    defaultGateway = {
-      address = "192.168.101.1";
-      interface = "enp14s0";
-    };
-    defaultGateway6 = {
-      address = "fe80::101";
-      interface = "enp14s0";
-    };
-  }; */
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 
   users.users.beef.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKbRYdNbAklKJBWZaCg3DWsOr/iSd8fVsMrMiZR+JNS4 beef@nixos"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVaAo6Zjn6U50w0L8F31fA7aW8lAgek/gb7J39X8vX4 beef@uwu"
   ];
 
-  swapDevices = [{
+  /* swapDevices = [{
     device = "/swapfile";
-  }];
-
-
-#  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+  }]; */
 
   environment.systemPackages = with pkgs; [
-    blender-hip
-    qq
-    # rocmPackages.hipcc
-    # rocmPackages.clr
-    nodejs
-    python3
-    gnumake
+
 #    bottles
-    wineWowPackages.waylandFull
-    tor-browser
+
     qemu
     (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
        qemu-system-x86_64 \
@@ -63,9 +40,6 @@
         rocmGpuTargets = [ "gfx1100" ];
         vulkanSupport = true;
     })
-
-    perf
-#    lmms
   ];
   hardware.keyboard.zsa.enable = true;
 

@@ -22,15 +22,6 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages/*_latest*/;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    supportedFilesystems = [ "ntfs" ];
-  };
-
   time.timeZone = "America/Toronto";
 
   # Select internationalisation properties.
@@ -66,11 +57,7 @@
       "video"
       "render"
     ];
-    packages = with pkgs; [
-      kdePackages.kate
-      kdePackages.skanlite
-      samba
-    ];
+    packages = with pkgs; [];
     shell = pkgs.fish;
   };
 
@@ -83,7 +70,6 @@
     # libsForQt5.kclock
     gparted
     ripgrep
-    prismlauncher
     #    nss # required by minecraft
     wezterm
     gcc
@@ -100,34 +86,9 @@
          '';
          })
     */
-    pear-desktop
-    qq
-    (symlinkJoin {
-      name = "vesktop";
-      paths = [ vesktop ];
-      buildInputs = [ makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/vesktop --add-flags "--wayland-text-input-version=3"
-      '';
-    })
+
 
     jujutsu
-    zotero
-    #    fortune-kind
-    #    parsec-bin
-    keymapp
-    #    zed-editor
-    tinymist
-    anki
-    #    osu-lazer-bin
-    #    kdePackages.kio-fuse
-    #    kdePackages.kio-extras
-    #    kdePackages.audiocd-kio
-    #    activitywatch
-    #    awatcher
-    # (makeAutostartItem { name = "awatcher"; package = awatcher; })
-    libwacom
-    rnote
     (
       let
         base = pkgs.appimageTools.defaultFhsEnvArgs;
@@ -150,33 +111,10 @@
     )
     nixfmt-rfc-style
     nil
-    obs-studio
-    kdePackages.kdenlive
-    rubberband
-    mlt
     rustup
     git-absorb
-    vlc
-    kdePackages.konversation
-    kdePackages.filelight
-    chromium
-    zola
-    kdePackages.plasma-vault
-    mihomo
-    racket
     cloudflare-warp
-    distrobox
-    thunderbird
-    zoom-us
-    coq
-    coqPackages.stdlib
-    coqPackages.mathcomp
-    coqPackages.mathcomp-ssreflect
-    coqPackages.vscoq-language-server
-    elan
-    ghc
   ];
-  environment.variables.ROCQ_PATH = "/run/current-system/sw/lib/coq/9.0/user-contrib/";
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
   programs.nh = {
@@ -194,14 +132,8 @@
       noto-fonts
       noto-fonts-cjk-sans
       nerd-fonts.iosevka
-      # (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];
     # emoji
     fontconfig.useEmbeddedBitmaps = true;
-  };
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 }

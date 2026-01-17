@@ -1,6 +1,6 @@
 { ... }:
 {
-   networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 #  services.connman.enable = true;
   # networking.firewall.allowedTCPPorts = [ 8010 8080 ];
   networking.firewall.enable = false;

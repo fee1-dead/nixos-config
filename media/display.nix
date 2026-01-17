@@ -2,11 +2,11 @@
 {
   services.displayManager = {
     defaultSession = "niri";
-    dms-greeter = {
+    /* dms-greeter = {
       enable = true;
       compositor.name = "niri";
-    };
-    # gdm.enable = true;
+    }; */
+    gdm.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
   services.xserver = {

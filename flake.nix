@@ -19,6 +19,13 @@
           #        rocmSupport = true;
         };
       };
+      nixpkgs-aarch64 = import nixpkgs {
+        system = "aarch64-linux";
+        config = {
+          allowUnfree = true;
+          cudaSupport = true;
+        }
+      }
     in
     {
       # PC
@@ -26,7 +33,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./common.nix
+          ./usage.nix
           ./per-system/pc.nix
           ./per-system/pc-hw.nix
           home-manager.nixosModules.home-manager
@@ -41,9 +48,22 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./common.nix
+          ./usage.nix
           ./per-system/thinkpad.nix
           ./per-system/thinkpad-hw.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.beef = import ./users/beef/home.nix;
+          }
+        ];
+      };
+      # Spark
+      nixosConfigurations.awa = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./base.nix
+          ./per-system/spark.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.beef = import ./users/beef/home.nix;
