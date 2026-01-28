@@ -53,6 +53,7 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+F { fullscreen-window; }
 
     Mod+Shift+WheelScrollDown      { focus-column-right; }
     Mod+Shift+WheelScrollUp        { focus-column-left; }
@@ -85,3 +86,9 @@ include "/home/beef/.config/niri/dms/colors.kdl"
 include "/home/beef/.config/niri/dms/layout.kdl"
 include "/home/beef/.config/niri/dms/alttab.kdl"
 include "/home/beef/.config/niri/dms/binds.kdl"
+
+window-rule {
+    match app-id="terraformental.exe"
+    // max-width 200
+    // max-height 300
+}

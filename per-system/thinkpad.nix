@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -18,6 +18,12 @@
     device = "/swap/swapfile";
     size = 16*1024;
   }];
+  environment.systemPackages = with pkgs; [
+    wineWowPackages.waylandFull
+    lutris
+    # wineWowPackages.full
+  ];
+  programs.gamescope.enable = true;
   /*
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
