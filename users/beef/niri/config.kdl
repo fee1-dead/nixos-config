@@ -87,6 +87,10 @@ include "/home/beef/.config/niri/dms/layout.kdl"
 include "/home/beef/.config/niri/dms/alttab.kdl"
 include "/home/beef/.config/niri/dms/binds.kdl"
 
+switch-events {
+    lid-close { spawn "dms" "ipc" "call" "lock" "lock"; }
+}
+
 window-rule {
     match app-id="terraformental.exe"
     // max-width 200

@@ -21,6 +21,7 @@
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
     lutris
+    haskell-language-server
     # wineWowPackages.full
   ];
   programs.gamescope.enable = true;
