@@ -37,7 +37,7 @@
     libwacom
     rnote
     obs-studio
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     rubberband
     mlt
     kdePackages.konversation

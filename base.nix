@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   nix.package = pkgs.lix;
   nix.settings = {
@@ -22,7 +22,7 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  time.timeZone = "America/Toronto";
+  time.timeZone = lib.mkDefault "America/Toronto";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -57,7 +57,7 @@
       "video"
       "render"
     ];
-    packages = with pkgs; [];
+    # packages = with pkgs; [];
     shell = pkgs.fish;
   };
 
