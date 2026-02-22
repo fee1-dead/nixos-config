@@ -81,6 +81,7 @@ input {
 output "DP-2" {
     scale 1.5
     variable-refresh-rate
+    mode "3840x2160@143.988"
 }
 include "/home/beef/.config/niri/dms/colors.kdl"
 include "/home/beef/.config/niri/dms/layout.kdl"

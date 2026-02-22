@@ -7,6 +7,7 @@
   ];
 #  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
 #  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
+  # nixpkgs.config.rocmSupport = true;
 
   networking.hostName = "uwu"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
@@ -40,7 +41,7 @@
 #  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
   environment.systemPackages = with pkgs; [
-    blender-hip
+    blender
     qq
     # rocmPackages.hipcc
     # rocmPackages.clr
@@ -58,14 +59,16 @@
      '')
 #    cloudflared
     sshfs
-    (llama-cpp.override {
+    /*(llama-cpp.override {
         rocmSupport = true;
         rocmGpuTargets = [ "gfx1100" ];
         vulkanSupport = true;
-    })
+    })*/
 
     perf
+    sillytavern
 #    lmms
+    # graalvmPackages.graalvm-ce
   ];
   hardware.keyboard.zsa.enable = true;
 
