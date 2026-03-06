@@ -78,6 +78,11 @@ input {
         tap
     }
 }
+cursor {
+    xcursor-theme "miku-xcursor"
+    xcursor-size 96
+}
+
 output "DP-2" {
     scale 1.5
     variable-refresh-rate
