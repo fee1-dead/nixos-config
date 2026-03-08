@@ -20,14 +20,14 @@
     prismlauncher
     pear-desktop
     qq
-    (symlinkJoin {
+    /*(symlinkJoin {
       name = "vesktop";
       paths = [ vesktop ];
       buildInputs = [ makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/vesktop --add-flags "--wayland-text-input-version=3"
       '';
-    })
+    })*/
     zotero
     keymapp
     tinymist
