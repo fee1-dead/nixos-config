@@ -75,7 +75,6 @@
   ];
   hardware.keyboard.zsa.enable = true;
 
-
   /* systemd.tmpfiles.rules = let rocm-merged = pkgs.symlinkJoin {
     name = "rocm-merged";
 
