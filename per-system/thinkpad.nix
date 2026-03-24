@@ -14,7 +14,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
-  services.automatic-timezoned.enable = true;
+  services.automatic-timezoned.enable = false;
   swapDevices = [{
     device = "/swap/swapfile";
     size = 16*1024;
