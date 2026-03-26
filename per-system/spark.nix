@@ -31,6 +31,25 @@
   users.users.beef.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVaAo6Zjn6U50w0L8F31fA7aW8lAgek/gb7J39X8vX4 beef@uwu"
   ];
+  users.users.yohello = {
+    isNormalUser = true;
+    description = "hi";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "scanner"
+      "lp"
+      "docker"
+      "input"
+      # for ROCm
+      "video"
+      "render"
+    ];
+    packages = with pkgs; [];
+    shell = pkgs.fish;
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK7yTuvUpmp+uZO99x++eK2DUEdhk00l9Mj1AVGxSOwY mp2702737@gmail.com
+" ];
+  };
 
   /* swapDevices = [{
     device = "/swapfile";
@@ -53,7 +72,17 @@
       cudaSupport = true;
       # cudaPackages = cudaPackages_13;
     })
+    libaio
+    espeak
+    ffmpeg
+    gcc
+    codex
+    claude-code
+    gh
   ];
+
+  # vscode ssh server
+  programs.nix-ld.enable = true;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
