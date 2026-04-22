@@ -1,10 +1,19 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+  dmsplugins = pkgs.fetchFromGitHub {
+    owner = "AvengeMedia";
+    repo = "dms-plugins";
+    rev = "141841fc85e01494df6d217bd5a27c65da87256d";
+    hash = "sha256-/155wFIotV9xiZzX9XRGs3ANjBcLJwS4kNDDNO6WkF0=";
+  };
+in
 {
   imports = [
     ../services/fprint.nix
     ../services/bluetooth.nix
     ../media/niri.nix
+    ../services/dae.nix
 #    ../services/mediawiki.nix
   ];
   networking.hostName = "ovo"; # Define your hostname.
@@ -20,12 +29,21 @@
     size = 16*1024;
   }];
   environment.systemPackages = with pkgs; [
-    wineWowPackages.waylandFull
+    # wineWowPackages.waylandFull
     lutris
     haskell-language-server
     # wineWowPackages.full
   ];
   programs.gamescope.enable = true;
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "af78bf94362a9d18" 
+    ];
+  };
+  programs.dms-shell.plugins = {
+     KDEConnect.src = "${dmsplugins}/DankKDEConnect";
+  };
   /*
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {

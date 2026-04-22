@@ -23,9 +23,11 @@
     # hyprland.enable = true;
     # nm-applet.enable = true;
   };
-  xdg.portal.extraPortals = [
+/*  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gnome
+    pkgs.xdg-desktop-portal-gtk
     # pkgs.xdg-desktop-portal-hyprland
-  ];
+  ];*/
   /*
     environment.systemPackages = with pkgs; [
       dunst # notification daemon

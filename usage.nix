@@ -11,23 +11,23 @@
     };
     supportedFilesystems = [ "ntfs" ];
   };
-  /*programs.steam = {
+  programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };*/
+  };
   environment.systemPackages = with pkgs; [
     prismlauncher
     pear-desktop
     qq
-    /*(symlinkJoin {
+    (symlinkJoin {
       name = "vesktop";
       paths = [ vesktop ];
       buildInputs = [ makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/vesktop --add-flags "--wayland-text-input-version=3"
       '';
-    })*/
+    })
     zotero
     keymapp
     tinymist

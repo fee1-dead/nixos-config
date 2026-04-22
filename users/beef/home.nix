@@ -13,7 +13,7 @@
     MOZ_USE_XINPUT2 = "1";
   };
 
-  home.pointerCursor = {
+  /* home.pointerCursor = {
     name = "miku-xcursor";
     size = 96;
     gtk.enable = true;
@@ -22,7 +22,8 @@
       mkdir -p $out/share/icons/miku-xcursor
       cp -r ${../../assets/cursors/miku-xcursor}/. $out/share/icons/miku-xcursor/
     '';
-  };
+  }; */
+
 
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
 
