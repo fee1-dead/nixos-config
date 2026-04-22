@@ -30,6 +30,7 @@
 
   users.users.beef.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVaAo6Zjn6U50w0L8F31fA7aW8lAgek/gb7J39X8vX4 beef@uwu"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqUHzG7tYwM20JlmDZ/iIAaYKQ0t8UU6MI+8bG/H9Gq beef@ovo"
   ];
   users.users.yohello = {
     isNormalUser = true;
