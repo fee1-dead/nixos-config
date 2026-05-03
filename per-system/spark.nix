@@ -2,6 +2,7 @@
 {
   imports = [
     ../media/niri.nix
+    ../services/dae.nix
 
   ];
   boot = {
@@ -26,6 +27,12 @@
 
   networking.hostName = "awa"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "af78bf94362a9d18"
+    ];
+  };
   system.stateVersion = "26.05";
 
   users.users.beef.openssh.authorizedKeys.keys = [
@@ -80,6 +87,7 @@
     codex
     claude-code
     gh
+    mihomo
   ];
 
   # vscode ssh server
