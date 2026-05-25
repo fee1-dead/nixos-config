@@ -13,7 +13,8 @@ in
     ../services/fprint.nix
     ../services/bluetooth.nix
     ../media/niri.nix
-    ../services/dae.nix
+    ../services/docker.nix
+#    ../services/dae.nix
 #    ../services/mediawiki.nix
   ];
   networking.hostName = "ovo"; # Define your hostname.
@@ -30,8 +31,9 @@ in
   }];
   environment.systemPackages = with pkgs; [
     # wineWowPackages.waylandFull
-    lutris
-    haskell-language-server
+    #lutris
+    #haskell-language-server
+    sillytavern
     # wineWowPackages.full
   ];
   programs.gamescope.enable = true;
