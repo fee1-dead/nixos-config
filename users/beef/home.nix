@@ -104,7 +104,9 @@
 
   programs.neovim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [vim-nix];
+    # plugins = with pkgs.vimPlugins; [vim-nix];
+    withRuby = false;
+    withPython3 = false;
   };
 
   programs.fish = {
