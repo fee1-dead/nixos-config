@@ -19,7 +19,6 @@
   environment.systemPackages = with pkgs; [
     prismlauncher
     pear-desktop
-    qq
     (symlinkJoin {
       name = "vesktop";
       paths = [ vesktop ];

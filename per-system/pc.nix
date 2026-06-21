@@ -42,7 +42,6 @@
 
   environment.systemPackages = with pkgs; [
     blender
-    qq
     # rocmPackages.hipcc
     # rocmPackages.clr
     nodejs
