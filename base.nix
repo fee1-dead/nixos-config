@@ -22,7 +22,7 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  time.timeZone = lib.mkDefault "America/Los_Angeles";
+  time.timeZone = lib.mkDefault "America/Toronto";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
