@@ -68,9 +68,6 @@
     sillytavern
 #    lmms
     # graalvmPackages.graalvm-ce
-    # ..........
-    claude-code
-    codex
   ];
   hardware.keyboard.zsa.enable = true;
 

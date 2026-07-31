@@ -84,8 +84,6 @@
     espeak
     ffmpeg
     gcc
-    codex
-    claude-code
     gh
     mihomo
   ];
