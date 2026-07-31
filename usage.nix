@@ -19,14 +19,8 @@
   environment.systemPackages = with pkgs; [
     prismlauncher
     pear-desktop
-    (symlinkJoin {
-      name = "vesktop";
-      paths = [ vesktop ];
-      buildInputs = [ makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/vesktop --add-flags "--wayland-text-input-version=3"
-      '';
-    })
+    qq
+    vesktop
     zotero
     keymapp
     tinymist
