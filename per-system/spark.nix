@@ -2,11 +2,11 @@
 {
   imports = [
     ../media/niri.nix
-    ../services/dae.nix
+   # ../services/dae.nix
 
   ];
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
     kernelParams = [ "console=tty1" "nokaslr" ];
     loader = {
       systemd-boot.enable = true;
@@ -15,13 +15,14 @@
     supportedFilesystems = [ ];
     extraModprobeConfig = "options nvidia_uvm uvm_disable_hmm=1";
   };
+  hardware.nvidia-container-toolkit.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;
     cudaSupport = true;
-    cudaCapabilities = [ "10.0" "12.0" /* "12.1" */ ];
+    cudaCapabilities = [ "10.0" "12.0" "12.1" ];
   };
-  nixpkgs.overlays = [ (final: prev: { cudaPackages = prev.cudaPackages; }) ];
+  nixpkgs.overlays = [ (final: prev: { cudaPackages = prev.cudaPackages_13; }) ];
 
   programs.firefox.package = pkgs.firefox-bin;
 
@@ -39,7 +40,7 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVaAo6Zjn6U50w0L8F31fA7aW8lAgek/gb7J39X8vX4 beef@uwu"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqUHzG7tYwM20JlmDZ/iIAaYKQ0t8UU6MI+8bG/H9Gq beef@ovo"
   ];
-  users.users.yohello = {
+  /*users.users.yohello = {
     isNormalUser = true;
     description = "hi";
     extraGroups = [
@@ -57,11 +58,14 @@
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK7yTuvUpmp+uZO99x++eK2DUEdhk00l9Mj1AVGxSOwY mp2702737@gmail.com
 " ];
-  };
+  };*/
 
   /* swapDevices = [{
     device = "/swapfile";
   }]; */
+  nixpkgs.config.permittedInsecurePackages = [
+    # "python3.14-vllm-0.16.0"
+  ];
 
   environment.systemPackages = with pkgs; [
 
@@ -76,16 +80,56 @@
 #    cloudflared
     sshfs
     
-    (llama-cpp.override {
+   /*(llama-cpp.override {
       cudaSupport = true;
-      # cudaPackages = cudaPackages_13;
+      cudaPackages = cudaPackages_13;
     })
+    (koboldcpp.override {
+      cudaPackages = cudaPackages_13;
+      cudaArches = [ "sm_121" ];
+      clblastSupport = true;
+      vulkanSupport = true;
+    })*/
+
     libaio
     espeak
     ffmpeg
     gcc
     gh
     mihomo
+    python3
+    gnumake
+    waypipe
+    (
+      let
+        base = pkgs.appimageTools.defaultFhsEnvArgs;
+      in
+      pkgs.buildFHSEnv (
+        base
+        // {
+          name = "fhs2";
+          targetPkgs =
+            pkgs:
+            (base.targetPkgs pkgs)
+            ++ (with pkgs; [
+              pkg-config
+              cudatoolkit
+              cmake
+            ]);
+            profile = ''
+              export FHS=1
+              export CUDA_PATH=${pkgs.cudatoolkit}
+              export LD_LIBRARY_PATH=/run/opengl-driver/lib:$LD_LIBRARY_PATH
+              export EXTRA_LDFLAGS="-L/lib -L/run/opengl-driver/lib"
+              export EXTRA_CCFLAGS="-I/usr/include"
+          '';
+          runScript = "fish";
+          extraOutputsToInstall = [ "dev" ];
+        }
+      )
+    )
+
+    # (python314Packages.vllm.override { cudaPackages = cudaPackages_13; })
   ];
 
   # vscode ssh server
@@ -112,4 +156,5 @@
   };
 
   services.openssh.enable = true;
+  virtualisation.docker.enable = true;
 }

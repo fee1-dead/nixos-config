@@ -125,8 +125,11 @@
       )
     )
     rustup
+    pkg-config
+    openssl
     git-absorb
     cloudflare-warp
+    zellij
   ];
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
