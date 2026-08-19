@@ -11,6 +11,13 @@
 
   networking.hostName = "uwu"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "af78bf94362a9d18" 
+    ];
+  };
+  services.tailscale.enable = true;
   /* networking = {
     interfaces.enp14s0 = {
       ipv4.addresses = [{
@@ -48,9 +55,15 @@
     python3
     gnumake
 #    bottles
-    wineWowPackages.waylandFull
+    (wineWow64Packages.waylandFull.overrideAttrs (old: {
+      patches = (old.patches or [ ]) ++ [
+        ./11355.patch
+      ];
+    }))
+    winetricks
     tor-browser
     qemu
+    lutris
     (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
        qemu-system-x86_64 \
          -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
@@ -89,6 +102,7 @@
   }; in [
     "L+    /opt/rocm/   -    -    -     -    ${rocm-merged}"
   ]; */
+  hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
 #    rocmPackages.rocm-runtime

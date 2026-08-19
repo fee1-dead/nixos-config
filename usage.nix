@@ -34,21 +34,21 @@
     mlt
     kdePackages.konversation
     kdePackages.filelight
-    chromium
+    # chromium
     zola
     kdePackages.plasma-vault
     mihomo
-    racket
+    # racket
     distrobox
     thunderbird
     zoom-us
-    coq
+    /* coq
     coqPackages.stdlib
     coqPackages.mathcomp
     coqPackages.mathcomp-ssreflect
     coqPackages.vscoq-language-server
     elan
-    ghc
+    ghc */
   ];
   environment.variables.ROCQ_PATH = "/run/current-system/sw/lib/coq/9.0/user-contrib/";
 }

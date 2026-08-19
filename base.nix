@@ -56,6 +56,7 @@
       # for ROCm
       "video"
       "render"
+      "dialout"
     ];
     # packages = with pkgs; [];
     shell = pkgs.fish;

@@ -1,0 +1,46 @@
+From fc7fdcb0ae537f5963d7d624baa5347546576bee Mon Sep 17 00:00:00 2001
+From: Ryszard Knop <winehq@dragonic.eu>
+Date: Thu, 9 Jul 2026 21:21:29 +0200
+Subject: [PATCH] winebus: Set HID product name from the USB descriptor
+ interface, if any
+
+Some USB devices expose multiple USB HID endpoints and let apps/games
+know which one is which based on the USB descriptor interface field. If
+the product name is set incorrectly, affected applications are unable to
+find the device they want to work with.
+---
+ dlls/winebus.sys/bus_udev.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/dlls/winebus.sys/bus_udev.c b/dlls/winebus.sys/bus_udev.c
+index b307124c3be..3e07ac0683a 100644
+--- a/dlls/winebus.sys/bus_udev.c
++++ b/dlls/winebus.sys/bus_udev.c
+@@ -1347,7 +1347,8 @@ static NTSTATUS lnxev_device_create(struct udev_device *dev, int fd, const char
+ static void udev_add_device(struct udev_device *dev, int fd)
+ {
+     struct device_desc desc = { .input = -1 };
+-    const char *subsystem, *devnode;
++    const char *subsystem, *devnode, *interface;
++    struct udev_device * usb_parent = NULL;
+     int bus = 0;
+ 
+     if (!(devnode = udev_device_get_devnode(dev)))
+@@ -1377,6 +1378,14 @@ static void udev_add_device(struct udev_device *dev, int fd)
+         return;
+     }
+ 
++    if (!strcmp(subsystem, "hidraw"))
++    {
++        /* HID devices on USB can have their product string set from the USB descriptor "interface" */
++        usb_parent = udev_device_get_parent_with_subsystem_devtype(dev, "usb", NULL);
++        if (usb_parent && (interface = udev_device_get_sysattr_value(usb_parent, "interface")))
++            ntdll_umbstowcs(interface, strlen(interface) + 1, desc.product, ARRAY_SIZE(desc.product));
++    }
++
+     if ((desc.is_hidraw = !strcmp(subsystem, "hidraw")) && !hidraw_device_create(dev, fd, devnode, desc)) return;
+     if (!strcmp(subsystem, "input") && !lnxev_device_create(dev, fd, devnode, desc)) return;
+     close(fd);
+-- 
+GitLab
+
