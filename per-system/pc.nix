@@ -5,18 +5,16 @@
     ../services/tor.nix
     ../media/niri.nix
   ];
-#  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
-#  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
   # nixpkgs.config.rocmSupport = true;
 
   networking.hostName = "uwu"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
-  services.zerotierone = {
+  /*services.zerotierone = {
     enable = true;
     joinNetworks = [
       "af78bf94362a9d18" 
     ];
-  };
+  };*/
   services.tailscale.enable = true;
   /* networking = {
     interfaces.enp14s0 = {
