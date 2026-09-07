@@ -93,7 +93,7 @@
 
     perf
     sillytavern
-    kdenlive
+    kdePackages.kdenlive
 #    lmms
     # graalvmPackages.graalvm-ce
   ];
