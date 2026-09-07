@@ -75,6 +75,9 @@
     wezterm
     gcc
     libreoffice-fresh
+
+    gsettings-desktop-schemas
+
     #   https://github.com/NixOS/nixpkgs/issues/368655
     #   (sageWithDoc.override { requireSageTests = false; })
     /*

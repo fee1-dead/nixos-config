@@ -23,13 +23,13 @@
     zotero
     keymapp
     tinymist
-    nixfmt-rfc-style
+    nixfmt
     nil
     anki
     libwacom
     rnote
     obs-studio
-    # kdePackages.kdenlive
+    kdePackages.kdenlive
     rubberband
     mlt
     kdePackages.konversation
@@ -40,8 +40,6 @@
     mihomo
     # racket
     distrobox
-    thunderbird
-    zoom-us
     /* coq
     coqPackages.stdlib
     coqPackages.mathcomp
