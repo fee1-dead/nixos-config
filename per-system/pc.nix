@@ -47,6 +47,20 @@
 
 #  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
+  services.udev.packages = [
+    (pkgs.writeTextFile {
+      name = "tsl-udev-rules";
+      destination = "/etc/udev/rules.d/70-tsl.rules";
+      text = ''
+        SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0ca3", ATTRS{idProduct}=="0021", TAG+="uaccess"
+      '';
+    })
+  ];
+
+  /*services.udev.extraRules = ''
+    SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ENV{ID_VENDOR_ID}=="0ca3", ENV{ID_MODEL_ID}=="0021", ENV{ID_USB_INTERFACE_NUM}=="02", MODE="0660", TAG+="uaccess"
+  '';*/
+
   environment.systemPackages = with pkgs; [
     blender
     # rocmPackages.hipcc
@@ -79,6 +93,7 @@
 
     perf
     sillytavern
+    kdenlive
 #    lmms
     # graalvmPackages.graalvm-ce
   ];
