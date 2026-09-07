@@ -5,6 +5,10 @@
     useNautilus = true;
   };
   xdg.portal.enable = true;
+  # use qt5ct instead of GTK here fixes issues when Qt apps try to open
+  # file choosers
+  # TODO: revert after https://github.com/NixOS/nixpkgs/pull/507455
+  qt.platformTheme = "qt5ct";
   programs.dms-shell = {
     enable = true;
     systemd.enable = true;
