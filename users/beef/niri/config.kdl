@@ -83,11 +83,19 @@ cursor {
     xcursor-size 96
 }
 
+output "DP-3" { 
+    position x=0 y=0
+    scale 1.5
+    variable-refresh-rate
+    mode "3840x2160@120.000"
+}
+
 output "DP-2" {
     scale 1.5
     variable-refresh-rate
     mode "3840x2160@120.000"
 }
+
 include "/home/beef/.config/niri/dms/colors.kdl"
 include "/home/beef/.config/niri/dms/layout.kdl"
 include "/home/beef/.config/niri/dms/alttab.kdl"
@@ -95,10 +103,4 @@ include "/home/beef/.config/niri/dms/binds.kdl"
 
 switch-events {
     lid-close { spawn "dms" "ipc" "call" "lock" "lock"; }
-}
-
-window-rule {
-    match app-id="terraformental.exe"
-    // max-width 200
-    // max-height 300
 }
