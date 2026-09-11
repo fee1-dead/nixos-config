@@ -40,6 +40,7 @@
     mihomo
     # racket
     distrobox
+    openutau
     /* coq
     coqPackages.stdlib
     coqPackages.mathcomp
