@@ -19,6 +19,7 @@
     ./services/kdeconnect.nix
     ./services/networking.nix
   ];
+  services.tailscale.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
