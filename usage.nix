@@ -41,6 +41,7 @@
     # racket
     distrobox
     openutau
+    jetbrains.idea
     /* coq
     coqPackages.stdlib
     coqPackages.mathcomp
