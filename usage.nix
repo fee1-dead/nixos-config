@@ -45,7 +45,14 @@
     distrobox
     openutau
     jetbrains.idea
+    waywall
     gram
+    ruff
+    vtsls
+    superhtml
+    tailwindcss-language-server
+    eslint
+    basedpyright
 
     /*
       coq

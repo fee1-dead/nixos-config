@@ -9,7 +9,7 @@
   home.homeDirectory = "/home/beef";
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "vim";
     MOZ_USE_XINPUT2 = "1";
   };
 
