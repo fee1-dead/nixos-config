@@ -1,4 +1,9 @@
-{ pkgs, inputs, lib, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 {
   nix.package = pkgs.lix;
   nix.settings = {
@@ -74,7 +79,13 @@
     ripgrep
     #    nss # required by minecraft
     wezterm
-    gcc
+    # clang
+    
+    llvmPackages_latest.libllvm
+    llvmPackages_latest.libcxx
+    llvmPackages_latest.clang
+    clang-tools 
+    clang
     libreoffice-fresh
 
     gsettings-desktop-schemas
@@ -91,7 +102,6 @@
          '';
          })
     */
-
 
     jujutsu
     (

@@ -1,10 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./base.nix
   ];
   boot = {
-    kernelPackages = pkgs.linuxPackages/*_latest*/;
+    # kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -16,6 +17,8 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
+  # gram extensions
+  programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
     prismlauncher
     pear-desktop
@@ -42,13 +45,17 @@
     distrobox
     openutau
     jetbrains.idea
-    /* coq
-    coqPackages.stdlib
-    coqPackages.mathcomp
-    coqPackages.mathcomp-ssreflect
-    coqPackages.vscoq-language-server
-    elan
-    ghc */
+    gram
+
+    /*
+      coq
+      coqPackages.stdlib
+      coqPackages.mathcomp
+      coqPackages.mathcomp-ssreflect
+      coqPackages.vscoq-language-server
+      elan
+      ghc
+    */
   ];
   environment.variables.ROCQ_PATH = "/run/current-system/sw/lib/coq/9.0/user-contrib/";
 }
