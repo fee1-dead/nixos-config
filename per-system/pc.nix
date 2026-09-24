@@ -63,7 +63,7 @@
     blender
     # rocmPackages.hipcc
     # rocmPackages.clr
-    nodejs
+    
     python3
     gnumake
 #    bottles
@@ -91,7 +91,6 @@
     })*/
 
     perf
-    sillytavern
     kdePackages.kdenlive
 #    lmms
     # graalvmPackages.graalvm-ce

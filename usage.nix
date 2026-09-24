@@ -46,6 +46,7 @@
     openutau
     jetbrains.idea
     waywall
+    nodejs
     gram
     ruff
     vtsls

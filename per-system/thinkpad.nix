@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   dmsplugins = pkgs.fetchFromGitHub {
@@ -13,14 +13,11 @@ in
     ../services/fprint.nix
     ../services/bluetooth.nix
     ../media/niri.nix
-    ../services/docker.nix
+#    ../services/docker.nix
 #    ../services/dae.nix
 #    ../services/mediawiki.nix
   ];
   networking.hostName = "ovo"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -33,16 +30,9 @@ in
     # wineWowPackages.waylandFull
     #lutris
     #haskell-language-server
-    sillytavern
     # wineWowPackages.full
   ];
-  programs.gamescope.enable = true;
-  services.zerotierone = {
-    enable = true;
-    joinNetworks = [
-      "af78bf94362a9d18" 
-    ];
-  };
+  # programs.gamescope.enable = true;
   programs.dms-shell.plugins = {
      KDEConnect.src = "${dmsplugins}/DankKDEConnect";
   };

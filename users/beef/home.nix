@@ -26,9 +26,12 @@
 
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
 
-  programs.vscode = {
+  programs.gram = {
     enable = true;
-    package = pkgs.vscode.fhs;/*
+  };
+  /*programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
     extensions = with pkgs.vscode-extensions; [
 #      jnoortheen.nix-ide
       rust-lang.rust-analyzer
@@ -45,8 +48,8 @@
       ms-vsliveshare.vsliveshare
       james-yu.latex-workshop
       mgt19937.typst-preview
-    ];*/
-    /*userSettings = {
+    ];
+    userSettings = {
       "_comment" = "This should only be edited at /etc/nixos/users/beef/home.nix.";
       "workbench.colorTheme" = "One Dark Pro Darker";
       "editor.fontLigatures" = true;
@@ -66,8 +69,8 @@
       };
       "editor.formatOnSave" = true;
       "window.zoomLevel" = 1;
-    };*/
-  };
+    };
+  };*/
 
   programs.git = {
     enable = true;
