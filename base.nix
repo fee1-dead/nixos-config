@@ -86,7 +86,7 @@
     llvmPackages_latest.clang
     clang-tools 
     clang
-    libreoffice-fresh
+    libreoffice
 
     gsettings-desktop-schemas
 

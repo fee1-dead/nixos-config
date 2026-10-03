@@ -53,6 +53,8 @@
     tailwindcss-language-server
     eslint
     basedpyright
+    coursier
+    jdk
 
     /*
       coq
