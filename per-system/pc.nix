@@ -70,6 +70,7 @@
     (wineWow64Packages.waylandFull.overrideAttrs (old: {
       patches = (old.patches or [ ]) ++ [
         ./11355.patch
+        ./11824.patch
       ];
     }))
     winetricks
