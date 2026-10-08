@@ -26,9 +26,6 @@
 
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
 
-  programs.gram = {
-    enable = true;
-  };
   /*programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;
