@@ -23,7 +23,7 @@
     prismlauncher
     pear-desktop
     vesktop
-    zotero
+    #zotero https://github.com/NixOS/nixpkgs/issues/568692
     keymapp
     tinymist
     nixfmt
@@ -47,6 +47,7 @@
     jetbrains.idea
     waywall
     nodejs
+    ninjabrain-bot
     gram
     ruff
     vtsls
@@ -56,6 +57,7 @@
     basedpyright
     coursier
     jdk
+    jetbrains.clion
 
     /*
       coq
@@ -63,8 +65,10 @@
       coqPackages.mathcomp
       coqPackages.mathcomp-ssreflect
       coqPackages.vscoq-language-server
-      elan
-      ghc
+    */  elan
+    idris2
+    idris2Packages.idris2Lsp
+    /*  ghc
     */
   ];
   environment.variables.ROCQ_PATH = "/run/current-system/sw/lib/coq/9.0/user-contrib/";
