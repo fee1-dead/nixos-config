@@ -27,6 +27,12 @@ in
     size = 16*1024;
   }];
   environment.systemPackages = with pkgs; [
+    qemu
+    (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
+       qemu-system-x86_64 \
+         -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
+         "$@"
+     '')
     # wineWowPackages.waylandFull
     #lutris
     #haskell-language-server
