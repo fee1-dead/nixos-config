@@ -47,12 +47,11 @@
     jetbrains.idea
     waywall
     nodejs
-    ninjabrain-bot
+    #ninjabrain-bot
     gram
     ruff
     vtsls
     superhtml
-    tailwindcss-language-server
     eslint
     basedpyright
     coursier
@@ -68,6 +67,7 @@
     */  elan
     idris2
     idris2Packages.idris2Lsp
+    ruby
     /*  ghc
     */
   ];
