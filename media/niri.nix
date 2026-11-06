@@ -9,7 +9,7 @@
   # file choosers
   # TODO: revert after https://github.com/NixOS/nixpkgs/pull/507455
   qt.platformTheme = "qt5ct";
-  programs.dms-shell = {
+  programs.dux-shell = {
     enable = true;
     systemd.enable = true;
   };
