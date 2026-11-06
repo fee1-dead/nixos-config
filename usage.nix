@@ -68,6 +68,7 @@
     idris2
     idris2Packages.idris2Lsp
     ruby
+    gcc
     /*  ghc
     */
   ];
