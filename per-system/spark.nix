@@ -28,12 +28,12 @@
 
   networking.hostName = "awa"; # Define your hostname.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
-  services.zerotierone = {
+  /*services.zerotierone = {
     enable = true;
     joinNetworks = [
       "af78bf94362a9d18"
     ];
-  };
+  };*/
   system.stateVersion = "26.05";
 
   users.users.beef.openssh.authorizedKeys.keys = [
@@ -146,14 +146,14 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
-  services.cloudflared = {
+  /*services.cloudflared = {
     enable = true;
     tunnels."dfa10061-f423-45e6-8229-c59e86167fd5" = {
       warp-routing.enabled = true;
       default = "http_status:404";
       credentialsFile = "/var/lib/cloudflared/dfa10061-f423-45e6-8229-c59e86167fd5.json";
     };
-  };
+  };*/
 
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
